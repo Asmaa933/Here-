@@ -10,3 +10,6 @@
 import Foundation
 let rearSegueID = "sw_rear"
 let frontSegueID = "sw_front"
+let loginSegueID = "loginSegue"
+
+let channelCellID = "channelCell"
