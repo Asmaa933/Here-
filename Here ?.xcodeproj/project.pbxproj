@@ -13,10 +13,12 @@
 		72071F7C22ACFA5A00BF5F53 /* ChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72071F7B22ACFA5A00BF5F53 /* ChatVC.swift */; };
 		72071F7E22ACFBE500BF5F53 /* ChannelVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72071F7D22ACFBE500BF5F53 /* ChannelVC.swift */; };
 		72071F8022AD0CD100BF5F53 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72071F7F22AD0CD100BF5F53 /* GradientView.swift */; };
+		7238E42422ADBC5A0002CD9F /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7238E42322ADBC5A0002CD9F /* LoginVC.swift */; };
 		727E8B3722AC5EF0005BEB09 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 727E8B3622AC5EF0005BEB09 /* AppDelegate.swift */; };
 		727E8B3C22AC5EF0005BEB09 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 727E8B3A22AC5EF0005BEB09 /* Main.storyboard */; };
 		727E8B3E22AC5EF8005BEB09 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 727E8B3D22AC5EF8005BEB09 /* Assets.xcassets */; };
 		727E8B4122AC5EF8005BEB09 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 727E8B3F22AC5EF8005BEB09 /* LaunchScreen.storyboard */; };
+		72940E8922ADD29B001ECC56 /* CreateAccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72940E8822ADD29B001ECC56 /* CreateAccountVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,12 +30,14 @@
 		72071F7B22ACFA5A00BF5F53 /* ChatVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatVC.swift; sourceTree = "<group>"; };
 		72071F7D22ACFBE500BF5F53 /* ChannelVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelVC.swift; sourceTree = "<group>"; };
 		72071F7F22AD0CD100BF5F53 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		7238E42322ADBC5A0002CD9F /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		727E8B3322AC5EEF005BEB09 /* Here ?.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Here ?.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		727E8B3622AC5EF0005BEB09 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		727E8B3B22AC5EF0005BEB09 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		727E8B3D22AC5EF8005BEB09 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		727E8B4022AC5EF8005BEB09 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		727E8B4222AC5EF8005BEB09 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		72940E8822ADD29B001ECC56 /* CreateAccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountVC.swift; sourceTree = "<group>"; };
 		C2F5A058708640B6CC42B06F /* Pods-Here ?.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Here ?.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Here ?/Pods-Here ?.debug.xcconfig"; sourceTree = "<group>"; };
 		F69F3DC1C82416E359BDD68B /* Pods-Here ?.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Here ?.release.xcconfig"; path = "Pods/Target Support Files/Pods-Here ?/Pods-Here ?.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -89,6 +93,8 @@
 			children = (
 				72071F7B22ACFA5A00BF5F53 /* ChatVC.swift */,
 				72071F7D22ACFBE500BF5F53 /* ChannelVC.swift */,
+				7238E42322ADBC5A0002CD9F /* LoginVC.swift */,
+				72940E8822ADD29B001ECC56 /* CreateAccountVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -257,6 +263,8 @@
 			files = (
 				72071F7C22ACFA5A00BF5F53 /* ChatVC.swift in Sources */,
 				727E8B3722AC5EF0005BEB09 /* AppDelegate.swift in Sources */,
+				72940E8922ADD29B001ECC56 /* CreateAccountVC.swift in Sources */,
+				7238E42422ADBC5A0002CD9F /* LoginVC.swift in Sources */,
 				72071F8022AD0CD100BF5F53 /* GradientView.swift in Sources */,
 				72071F7522ACF36600BF5F53 /* SWRevealViewController.m in Sources */,
 				72071F7722ACF93300BF5F53 /* Constants.swift in Sources */,
