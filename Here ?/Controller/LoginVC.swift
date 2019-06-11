@@ -9,7 +9,10 @@
 import UIKit
 
 class LoginVC: UIViewController {
-
+let login = LogInServices()
+    @IBOutlet weak var usernameTxt: UITextField!
+    
+    @IBOutlet weak var passwordTxt: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -19,8 +22,22 @@ class LoginVC: UIViewController {
     dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func createAccountBtnTapped(_ sender: UIButton) {
+    @IBAction func signUpBtnTapped(_ sender: UIButton) {
         performSegue(withIdentifier: createAccountSegueID, sender: nil)
         
     }
+    
+    @IBAction func loginBtnTapped(_ sender: UIButton) {
+        let parameters :[String : Any] = [
+            "email" : usernameTxt.text ?? "",
+            "password" : passwordTxt.text ?? ""
+                                          ]
+        login.logInUser(parameters: parameters) { (success) in
+            if success{
+                print("accessToken:")
+                print(LocalStore.sharedLocalStore.getAccessToken() ?? "no access tokin")
+            }
+        }
+    }
+    
 }

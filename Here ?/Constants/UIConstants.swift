@@ -8,10 +8,14 @@
 //
 
 import Foundation
+
+//segues
 let rearSegueID = "sw_rear"
 let frontSegueID = "sw_front"
 let loginSegueID = "loginSegue"
 let createAccountSegueID =  "createAccountSegue"
 let unwindToChannelSegueID = "unwindToChannelSegue"
 
+//cells
 let channelCellID = "channelCell"
+
