@@ -23,6 +23,8 @@
 		726C853922B319C2009927BA /* UserDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726C853822B319C2009927BA /* UserDataModel.swift */; };
 		726C853B22B348C9009927BA /* AvatarPickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726C853A22B348C9009927BA /* AvatarPickerVC.swift */; };
 		726C853D22B34D9E009927BA /* AvatarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726C853C22B34D9E009927BA /* AvatarCollectionViewCell.swift */; };
+		726C853F22B36BA4009927BA /* CircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726C853E22B36BA4009927BA /* CircleImage.swift */; };
+		726C854422B38A6C009927BA /* HelpingMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726C854322B38A6C009927BA /* HelpingMethods.swift */; };
 		727E8B3722AC5EF0005BEB09 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 727E8B3622AC5EF0005BEB09 /* AppDelegate.swift */; };
 		727E8B3C22AC5EF0005BEB09 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 727E8B3A22AC5EF0005BEB09 /* Main.storyboard */; };
 		727E8B3E22AC5EF8005BEB09 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 727E8B3D22AC5EF8005BEB09 /* Assets.xcassets */; };
@@ -49,6 +51,8 @@
 		726C853822B319C2009927BA /* UserDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataModel.swift; sourceTree = "<group>"; };
 		726C853A22B348C9009927BA /* AvatarPickerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarPickerVC.swift; sourceTree = "<group>"; };
 		726C853C22B34D9E009927BA /* AvatarCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarCollectionViewCell.swift; sourceTree = "<group>"; };
+		726C853E22B36BA4009927BA /* CircleImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImage.swift; sourceTree = "<group>"; };
+		726C854322B38A6C009927BA /* HelpingMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpingMethods.swift; sourceTree = "<group>"; };
 		727E8B3322AC5EEF005BEB09 /* Here ?.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Here ?.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		727E8B3622AC5EF0005BEB09 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		727E8B3B22AC5EF0005BEB09 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -105,6 +109,7 @@
 				72071F7F22AD0CD100BF5F53 /* GradientView.swift */,
 				7230542222AF6DF3008F08DC /* RoundedButton.swift */,
 				726C853C22B34D9E009927BA /* AvatarCollectionViewCell.swift */,
+				726C853E22B36BA4009927BA /* CircleImage.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -140,6 +145,14 @@
 			path = Constants;
 			sourceTree = "<group>";
 		};
+		726C854022B37F2D009927BA /* Helping Methods */ = {
+			isa = PBXGroup;
+			children = (
+				726C854322B38A6C009927BA /* HelpingMethods.swift */,
+			);
+			path = "Helping Methods";
+			sourceTree = "<group>";
+		};
 		727E8B2A22AC5EEF005BEB09 = {
 			isa = PBXGroup;
 			children = (
@@ -161,6 +174,7 @@
 		727E8B3522AC5EEF005BEB09 /* Here ? */ = {
 			isa = PBXGroup;
 			children = (
+				726C854022B37F2D009927BA /* Helping Methods */,
 				7230541A22AF507B008F08DC /* Services */,
 				72071F7A22ACFA2700BF5F53 /* Controller */,
 				72071F7922ACFA1E00BF5F53 /* View */,
@@ -307,9 +321,11 @@
 				7230542522AF75D1008F08DC /* LogInServices.swift in Sources */,
 				7230542122AF5294008F08DC /* ApiConstants.swift in Sources */,
 				72071F7C22ACFA5A00BF5F53 /* ChatVC.swift in Sources */,
+				726C853F22B36BA4009927BA /* CircleImage.swift in Sources */,
 				727E8B3722AC5EF0005BEB09 /* AppDelegate.swift in Sources */,
 				72940E8922ADD29B001ECC56 /* CreateAccountVC.swift in Sources */,
 				726C853B22B348C9009927BA /* AvatarPickerVC.swift in Sources */,
+				726C854422B38A6C009927BA /* HelpingMethods.swift in Sources */,
 				7238E42422ADBC5A0002CD9F /* LoginVC.swift in Sources */,
 				726C853D22B34D9E009927BA /* AvatarCollectionViewCell.swift in Sources */,
 				72071F8022AD0CD100BF5F53 /* GradientView.swift in Sources */,

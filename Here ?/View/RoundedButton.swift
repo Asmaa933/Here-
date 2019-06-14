@@ -15,4 +15,15 @@ class RoundedButton: UIButton {
             self.layer.cornerRadius = cornerRadius
         }
 }
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        setupView()
+    }
+    func setupView(){
+        self.layer.cornerRadius = 6.0
+        self.clipsToBounds = true
+    }
+    override func prepareForInterfaceBuilder() {
+        setupView()
+    }
 }
