@@ -24,7 +24,7 @@ updateUI()
         passwordTxt.attributedPlaceholder = NSAttributedString(string: "Password", attributes: [NSAttributedString.Key.foregroundColor : placeHolderColor])
     
         activityIndicator.isHidden = true
-         HelpingMethods.checkEndEditing(viewController: LoginVC())
+         //HelpingMethods.checkEndEditing(viewController: LoginVC())
     }
     @IBAction func closeBtnTapped(_ sender: UIButton) {
     dismiss(animated: true, completion: nil)

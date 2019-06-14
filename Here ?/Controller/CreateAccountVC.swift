@@ -30,7 +30,7 @@ updateUI()
           passwordTxt.attributedPlaceholder = NSAttributedString(string: "Password", attributes: [NSAttributedString.Key.foregroundColor: placeHolderColor])
           emailTxt.attributedPlaceholder = NSAttributedString(string: "Email", attributes: [NSAttributedString.Key.foregroundColor: placeHolderColor])
     activityInd.isHidden = true
-        HelpingMethods.checkEndEditing(viewController: CreateAccountVC())
+        //HelpingMethods.checkEndEditing(viewController: CreateAccountVC())
     }
     override func viewDidAppear(_ animated: Bool) {
         if UserDataModel.sharedUserData.avatarName != ""{
