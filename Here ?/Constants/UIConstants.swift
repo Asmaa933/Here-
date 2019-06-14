@@ -15,7 +15,7 @@ let frontSegueID = "sw_front"
 let loginSegueID = "loginSegue"
 let createAccountSegueID =  "createAccountSegue"
 let unwindToChannelSegueID = "unwindToChannelSegue"
-
+let avataPickerSegueID = "avataPickerSegue"
 //cells
 let channelCellID = "channelCell"
-
+let avatarCellID = "avatarCell"

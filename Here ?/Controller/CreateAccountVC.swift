@@ -14,7 +14,10 @@ class CreateAccountVC: UIViewController {
     @IBOutlet weak var emailTxt: UITextField!
     @IBOutlet weak var passwordTxt: UITextField!
     @IBOutlet weak var userImage: UIImageView!
-let register = RegisterServices()
+    var avatarName = "profileDefault"
+    let register = RegisterServices()
+    let addaccount = AddAccountServices()
+    let avatarColor = "[0.5,0.5,0.5,1]"
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -26,7 +29,7 @@ let register = RegisterServices()
     }
   
     @IBAction func chooseAvatarBtnTapped(_ sender: UIButton) {
-        
+        performSegue(withIdentifier: avataPickerSegueID, sender: nil)
        
         }
     
@@ -34,12 +37,25 @@ let register = RegisterServices()
     @IBAction func GenerateBGColorBtnTapped(_ sender: UIButton) {
     }
     @IBAction func createAccountTapped(_ sender: UIButton) {
-        let parameters :[String : Any] = [
+        let registerParameters :[String : Any] = [
             "email" : emailTxt.text ?? "",
             "password" : passwordTxt.text ?? ""
         ]
-        register.registerUser(parameters: parameters) { (success) in
-            print("registered !")
+        let accountParameters:[String : Any] = [
+            "email" : emailTxt.text ?? "",
+            "name" : userNameTxt.text ?? "",
+            "avatarName" : avatarName,
+            "avatarColor" : avatarColor
+        ]
+        register.registerUser(parameters: registerParameters) { (success) in
+            if success {
+                self.addaccount.createAccount(parameters: accountParameters, completion: { (success) in
+                    if success{
+                        print(UserDataModel.sharedUserData.avatarName)
+                        self.performSegue(withIdentifier: unwindToChannelSegueID, sender: nil)
+                    }
+                })
+            }
         }
     }
 }
