@@ -15,7 +15,7 @@ class RegisterServices{
    
         Alamofire.request(authURL, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: header).responseString { (response) in
             if  response.result.error == nil{
-                LocalStore.sharedLocalStore.isLoggedIn = true
+                //LocalStore.sharedLocalStore.isLoggedIn = true
 
                 completion (true)
             }else{
