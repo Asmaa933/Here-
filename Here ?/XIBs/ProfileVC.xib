@@ -11,6 +11,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProfileVC" customModule="Here__" customModuleProvider="target">
             <connections>
+                <outlet property="emailTxt" destination="mXq-sr-lZu" id="K5b-qR-wph"/>
+                <outlet property="nameTxt" destination="NL0-8j-q0h" id="ShX-nW-xbn"/>
+                <outlet property="userImage" destination="kNs-Yr-Wzg" id="Pre-FB-DvT"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -23,11 +26,11 @@
                     <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
-                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2cu-TD-xYk">
-                    <rect key="frame" x="20" y="187" width="335" height="391"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2cu-TD-xYk">
+                    <rect key="frame" x="20" y="153.5" width="335" height="360"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="CSL-xs-gGq">
-                            <rect key="frame" x="83.5" y="67" width="168.5" height="226"/>
+                            <rect key="frame" x="83.5" y="37" width="168.5" height="226"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Profile:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ihy-vx-zX3">
                                     <rect key="frame" x="24" y="0.0" width="120" height="37"/>
@@ -35,7 +38,7 @@
                                     <color key="textColor" red="0.25882352939999997" green="0.3294117647" blue="0.72549019609999998" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profileDefault" translatesAutoresizingMaskIntoConstraints="NO" id="kNs-Yr-Wzg">
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profileDefault" translatesAutoresizingMaskIntoConstraints="NO" id="kNs-Yr-Wzg" customClass="CircleImage" customModule="Here__" customModuleProvider="target">
                                     <rect key="frame" x="34" y="51" width="100" height="100"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="100" id="vFo-d2-OyC"/>
@@ -59,13 +62,19 @@
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ima-LZ-SBK">
                             <rect key="frame" x="291" y="16" width="28" height="28"/>
                             <state key="normal" image="closeButton"/>
+                            <connections>
+                                <action selector="closeModalTapped:" destination="-1" eventType="touchUpInside" id="aJp-U4-CSY"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k9N-zn-Jmg">
-                            <rect key="frame" x="127.5" y="258" width="80" height="52"/>
+                            <rect key="frame" x="127.5" y="300" width="80" height="52"/>
                             <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="25"/>
                             <state key="normal" title="Log out">
                                 <color key="titleColor" red="0.25882352939999997" green="0.3294117647" blue="0.72549019609999998" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
+                            <connections>
+                                <action selector="logOutBtnTapped:" destination="-1" eventType="touchUpInside" id="rrl-ra-10W"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -73,19 +82,21 @@
                         <constraint firstAttribute="trailing" secondItem="ima-LZ-SBK" secondAttribute="trailing" constant="16" id="Acn-KW-GTn"/>
                         <constraint firstItem="CSL-xs-gGq" firstAttribute="centerX" secondItem="2cu-TD-xYk" secondAttribute="centerX" id="D4U-T0-kXn"/>
                         <constraint firstItem="ima-LZ-SBK" firstAttribute="top" secondItem="2cu-TD-xYk" secondAttribute="top" constant="16" id="KGA-kF-iUN"/>
-                        <constraint firstAttribute="bottom" secondItem="k9N-zn-Jmg" secondAttribute="bottom" constant="10" id="bfk-fT-baF"/>
-                        <constraint firstAttribute="height" constant="320" id="h7S-Dc-ZdC"/>
-                        <constraint firstItem="k9N-zn-Jmg" firstAttribute="centerX" secondItem="2cu-TD-xYk" secondAttribute="centerX" id="puN-hI-eNU"/>
-                        <constraint firstItem="CSL-xs-gGq" firstAttribute="centerY" secondItem="2cu-TD-xYk" secondAttribute="centerY" constant="20" id="tdy-pq-rDD"/>
+                        <constraint firstAttribute="height" constant="360" id="h7S-Dc-ZdC"/>
+                        <constraint firstAttribute="bottom" secondItem="k9N-zn-Jmg" secondAttribute="bottom" constant="8" id="hOn-tQ-cea"/>
+                        <constraint firstItem="k9N-zn-Jmg" firstAttribute="centerX" secondItem="2cu-TD-xYk" secondAttribute="centerX" id="pkm-9q-dE7"/>
+                        <constraint firstItem="CSL-xs-gGq" firstAttribute="centerY" secondItem="2cu-TD-xYk" secondAttribute="centerY" constant="-30" id="tdy-pq-rDD"/>
                     </constraints>
                 </view>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
+                <constraint firstItem="2cu-TD-xYk" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="Jbl-gM-ALR"/>
                 <constraint firstItem="2cu-TD-xYk" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="eTp-h6-GEb"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="2cu-TD-xYk" secondAttribute="trailing" constant="20" id="fIw-T6-xUz"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="txY-mI-AFz" secondAttribute="bottom" id="htw-mI-Y0D"/>
                 <constraint firstItem="txY-mI-AFz" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="mIl-kt-HwF"/>
+                <constraint firstItem="2cu-TD-xYk" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="ohO-3u-Iem"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="top" secondItem="txY-mI-AFz" secondAttribute="top" id="pPo-SF-utc"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="txY-mI-AFz" secondAttribute="trailing" id="paa-8E-3NT"/>
             </constraints>
