@@ -30,4 +30,17 @@ class UserDataModel{
     func setRGBColor(avatarColorRGB: [CGFloat]){
         self.avatarColorRGB = avatarColorRGB
     }
+
+func logOutUser(){
+    name = ""
+    email = ""
+    avatarName = ""
+    avatarColor = ""
+    id = ""
+    avatarColorRGB = []
+
+    LocalStore.sharedLocalStore.isLoggedIn = false
+    LocalStore.sharedLocalStore.deleteAccessToken()
+    LocalStore.sharedLocalStore.userEmail = ""
+}
 }
