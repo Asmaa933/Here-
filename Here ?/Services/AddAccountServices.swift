@@ -16,9 +16,10 @@ class AddAccountServices{
             "Content-Type":"application/json"
                       ]
         
-        Alamofire.request(createAccountURL, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: header).responseJSON { (response) in
+        Alamofire.request(createAccountURL, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: header).validate().responseJSON { (response) in
             if response.result.error == nil{
                 guard let data = response.data else {return}
+                print(data)
                 do{
                  let json = try JSON(data: data)
                     
