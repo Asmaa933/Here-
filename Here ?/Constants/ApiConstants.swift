@@ -11,9 +11,9 @@ import Foundation
 typealias CompletionHandler = (_ success : Bool) -> ()
 
 let baseURL = "https://herechatt.herokuapp.com/v1/"
-let authURL = "\(baseURL)account/register"
-let loginURL = "\(baseURL)account/login"
-let createAccountURL = "\(baseURL)user/add"
+let authURL = "\(baseURL)account/register/"
+let loginURL = "\(baseURL)account/login/"
+let createAccountURL = "\(baseURL)user/add/"
 
 let accessToken = "token"
 

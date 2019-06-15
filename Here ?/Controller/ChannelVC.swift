@@ -31,7 +31,12 @@ self.revealViewController().rearViewRevealWidth = self.view.frame.size.width - 6
         }
     }
     @IBAction func loginBtnTapped(_ sender: UIButton) {
+        if LocalStore.sharedLocalStore.isLoggedIn{
+            let profile = ProfileVC()
+            profile.modalPresentationStyle = .custom
+            present(profile, animated: true, completion: nil)
+        }else{
         performSegue(withIdentifier: loginSegueID, sender: nil)
     }
-    
+    }
 }
