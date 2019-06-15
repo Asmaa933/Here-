@@ -7,14 +7,5 @@
 //
 
 import Foundation
-import UIKit
-class HelpingMethods{
-   static func checkEndEditing(viewController:UIViewController){
-        let tap  = UITapGestureRecognizer(target: viewController, action: #selector (HelpingMethods.handleTap(VC:)))
-            viewController.view.addGestureRecognizer(tap)
-}
-    
-@objc static func handleTap(VC:UIViewController){
-    VC.view.endEditing(true)
-}
-}
+
+

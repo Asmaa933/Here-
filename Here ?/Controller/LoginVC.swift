@@ -24,8 +24,13 @@ updateUI()
         passwordTxt.attributedPlaceholder = NSAttributedString(string: "Password", attributes: [NSAttributedString.Key.foregroundColor : placeHolderColor])
     
         activityIndicator.isHidden = true
-         //HelpingMethods.checkEndEditing(viewController: LoginVC())
+        let tap  = UITapGestureRecognizer(target: self, action: #selector (LoginVC.handleTap))
+        view.addGestureRecognizer(tap)
     }
+    @objc func handleTap(){
+        view.endEditing(true)
+    }
+
     @IBAction func closeBtnTapped(_ sender: UIButton) {
     dismiss(animated: true, completion: nil)
     }
@@ -48,6 +53,11 @@ updateUI()
                 self.activityIndicator.stopAnimating()
                 print("accessToken:")
     print(LocalStore.sharedLocalStore.getAccessToken() ?? "no access tokin")
+                
+
+                self.dismiss(animated: true, completion: nil)
+
+                
             }
         }
     }

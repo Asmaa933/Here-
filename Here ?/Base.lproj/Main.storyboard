@@ -104,7 +104,7 @@
                                 <rect key="frame" x="263" y="98.5" width="22" height="22"/>
                                 <state key="normal" image="addChannelButton"/>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="menuProfileIcon" translatesAutoresizingMaskIntoConstraints="NO" id="CMP-Ug-tuw">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="menuProfileIcon" translatesAutoresizingMaskIntoConstraints="NO" id="CMP-Ug-tuw" customClass="CircleImage" customModule="Here__" customModuleProvider="target">
                                 <rect key="frame" x="16" y="572" width="75" height="75"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="75" id="LzE-Yy-JaU"/>
@@ -174,6 +174,7 @@
                     </view>
                     <connections>
                         <outlet property="loginBtn" destination="xZm-rK-cy0" id="Eag-ad-bmV"/>
+                        <outlet property="userImage" destination="CMP-Ug-tuw" id="eR5-Ru-n9v"/>
                         <segue destination="UGL-Ho-cnJ" kind="show" identifier="loginSegue" id="X8A-zj-vHm"/>
                     </connections>
                 </viewController>
@@ -453,10 +454,10 @@
                                     <action selector="backBtnPressed:" destination="KST-R2-qBF" eventType="touchUpInside" id="agP-3t-BjV"/>
                                 </connections>
                             </button>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="YIC-QO-toh">
+                            <segmentedControl opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="YIC-QO-toh">
                                 <rect key="frame" x="107.5" y="36" width="160" height="29"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="160" id="o8n-Pd-ySi"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="160" id="OR7-ZL-LgT"/>
                                 </constraints>
                                 <segments>
                                     <segment title="Dark"/>

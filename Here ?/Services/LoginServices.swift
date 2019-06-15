@@ -21,8 +21,11 @@ class LogInServices{
      LocalStore.sharedLocalStore.saveAccessToken(token: token)
 
                 let email = json["user"].stringValue
+                    
             LocalStore.sharedLocalStore.userEmail = email
                 }catch{}
+                LocalStore.sharedLocalStore.isLoggedIn = true
+
                 completion(true)
             }else{
                 completion(false)

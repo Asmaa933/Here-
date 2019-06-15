@@ -18,4 +18,4 @@ let createAccountURL = "\(baseURL)user/add"
 let accessToken = "token"
 
 let userEmailKey = "userEmail"
-let loggedInKey = "LoggedIn"
+let loggedInKey = "loggedIn"

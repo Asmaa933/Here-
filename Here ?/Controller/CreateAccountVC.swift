@@ -18,7 +18,7 @@ class CreateAccountVC: UIViewController {
     var avatarName = "profileDefault"
     let register = RegisterServices()
     let addaccount = AddAccountServices()
-    let avatarColor = "[0.5,0.5,0.5,1]"
+    var avatarColor: [CGFloat] = [0.5,0.5,0.5,1]
     var bgColor : UIColor?
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +30,11 @@ updateUI()
           passwordTxt.attributedPlaceholder = NSAttributedString(string: "Password", attributes: [NSAttributedString.Key.foregroundColor: placeHolderColor])
           emailTxt.attributedPlaceholder = NSAttributedString(string: "Email", attributes: [NSAttributedString.Key.foregroundColor: placeHolderColor])
     activityInd.isHidden = true
-        //HelpingMethods.checkEndEditing(viewController: CreateAccountVC())
+        let tap  = UITapGestureRecognizer(target: self, action: #selector (CreateAccountVC.handleTap))
+        view.addGestureRecognizer(tap)
+    }
+    @objc func handleTap(){
+        view.endEditing(true)
     }
     override func viewDidAppear(_ animated: Bool) {
         if UserDataModel.sharedUserData.avatarName != ""{
@@ -56,6 +60,8 @@ updateUI()
           let randomG = CGFloat(arc4random_uniform(255)) / 255
           let randomB = CGFloat(arc4random_uniform(255)) / 255
         bgColor = UIColor(red: randomR, green: randomG, blue: randomB, alpha: 1)
+        avatarColor = [randomR,randomG,randomB,1]
+        UserDataModel.sharedUserData.setRGBColor(avatarColorRGB: avatarColor)
         UIView.animate(withDuration: 0.2) {
             self.userImage.backgroundColor = self.bgColor
 
@@ -74,7 +80,7 @@ updateUI()
             "email" : emailTxt.text?.lowercased() ?? "",
             "name" : userNameTxt.text ?? "",
             "avatarName" : avatarName,
-            "avatarColor" : avatarColor
+            "avatarColor" : "\(avatarColor)"
         ]
         register.registerUser(parameters: registerParameters) { (success) in
             if success {

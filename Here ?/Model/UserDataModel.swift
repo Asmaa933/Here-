@@ -14,7 +14,7 @@ class UserDataModel{
     public private(set) var avatarName = ""
     public private(set) var avatarColor = ""
     public private(set) var id = ""
-   
+    public private(set) var avatarColorRGB :[CGFloat] = []
     
     func setUserData(name:String , email: String , avatarName: String, avatarColor:String, id : String){
         self.name = name
@@ -26,5 +26,8 @@ class UserDataModel{
     }
     func setAvatarName(avatarName: String){
     self.avatarName = avatarName
+    }
+    func setRGBColor(avatarColorRGB: [CGFloat]){
+        self.avatarColorRGB = avatarColorRGB
     }
 }

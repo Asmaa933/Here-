@@ -10,12 +10,13 @@ import Foundation
 class LocalStore{
 static let sharedLocalStore = LocalStore()
     let userDefaults =  UserDefaults.standard
-    var isLoggedIn:Bool{
-        get{
+    var isLoggedIn : Bool {
+        get {
+            
             return userDefaults.bool(forKey: loggedInKey)
         }
-        set{
-            return userDefaults.set(newValue, forKey: loggedInKey)
+        set {
+            userDefaults.set(newValue, forKey: loggedInKey)
         }
     }
     var userEmail: String?{
