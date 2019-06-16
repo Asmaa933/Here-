@@ -14,7 +14,7 @@ class UserDataModel{
     public private(set) var avatarName = ""
     public private(set) var avatarColor = ""
     public private(set) var id = ""
-    public private(set) var avatarColorRGB :[CGFloat] = []
+    public private(set) var avatarColorRGB :[CGFloat] = [0.5,0.5,0.5,1]
     
     func setUserData(name:String , email: String , avatarName: String, avatarColor:String, id : String){
         self.name = name
@@ -37,7 +37,7 @@ func logOutUser(){
     avatarName = ""
     avatarColor = ""
     id = ""
-    avatarColorRGB = []
+    avatarColorRGB = [0.5,0.5,0.5,1]
 
     LocalStore.sharedLocalStore.isLoggedIn = false
     LocalStore.sharedLocalStore.deleteAccessToken()

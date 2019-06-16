@@ -15,10 +15,11 @@ class CreateAccountVC: UIViewController {
     @IBOutlet weak var emailTxt: UITextField!
     @IBOutlet weak var passwordTxt: UITextField!
     @IBOutlet weak var userImage: UIImageView!
-    var avatarName = "profileDefault"
+  
     let register = RegisterServices()
     let addaccount = AddAccountServices()
     let login = LogInServices()
+      var avatarName = "profileDefault"
     var avatarColor: [CGFloat] = [0.5,0.5,0.5,1]
     var bgColor : UIColor?
     
@@ -28,7 +29,7 @@ updateUI()
     }
     func updateUI(){
         // change font color of placeholder 
-        userNameTxt.attributedPlaceholder = NSAttributedString(string: "UserName", attributes: [NSAttributedString.Key.foregroundColor: placeHolderColor])
+        userNameTxt.attributedPlaceholder = NSAttributedString(string: "Username", attributes: [NSAttributedString.Key.foregroundColor: placeHolderColor])
           passwordTxt.attributedPlaceholder = NSAttributedString(string: "Password", attributes: [NSAttributedString.Key.foregroundColor: placeHolderColor])
           emailTxt.attributedPlaceholder = NSAttributedString(string: "Email", attributes: [NSAttributedString.Key.foregroundColor: placeHolderColor])
     activityInd.isHidden = true
@@ -40,7 +41,8 @@ updateUI()
     }
     override func viewDidAppear(_ animated: Bool) {
         if UserDataModel.sharedUserData.avatarName != ""{
-    userImage.image = UIImage(named: UserDataModel.sharedUserData.avatarName)
+            avatarName =  UserDataModel.sharedUserData.avatarName
+    userImage.image = UIImage(named: avatarName)
             if avatarName.contains("light") && bgColor == nil{
                 userImage.backgroundColor = UIColor.lightGray
             }
@@ -53,7 +55,6 @@ updateUI()
   
     @IBAction func chooseAvatarBtnTapped(_ sender: UIButton) {
         performSegue(withIdentifier: avataPickerSegueID, sender: nil)
-       avatarName = UserDataModel.sharedUserData.avatarName
         }
     
     

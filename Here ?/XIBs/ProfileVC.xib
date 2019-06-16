@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProfileVC" customModule="Here__" customModuleProvider="target">
             <connections>
+                <outlet property="bgView" destination="txY-mI-AFz" id="Dom-lX-A7l"/>
                 <outlet property="emailTxt" destination="mXq-sr-lZu" id="K5b-qR-wph"/>
                 <outlet property="nameTxt" destination="NL0-8j-q0h" id="ShX-nW-xbn"/>
                 <outlet property="userImage" destination="kNs-Yr-Wzg" id="Pre-FB-DvT"/>

@@ -24,7 +24,7 @@ class LogInServices{
                     
             LocalStore.sharedLocalStore.userEmail = email
                 }catch{}
-                //LocalStore.sharedLocalStore.isLoggedIn = true
+              LocalStore.sharedLocalStore.isLoggedIn = true
 
                 completion(true)
             }else{

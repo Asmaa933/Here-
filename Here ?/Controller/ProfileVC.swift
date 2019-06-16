@@ -10,6 +10,7 @@ import UIKit
 
 class ProfileVC: UIViewController {
 
+    @IBOutlet weak var bgView: UIView!
     @IBOutlet weak var userImage: UIImageView!
     
     @IBOutlet weak var nameTxt: UILabel!
@@ -21,12 +22,13 @@ updateUI()
     }
     func updateUI(){
         userImage.image = UIImage(named: UserDataModel.sharedUserData.avatarName)
-        //let bgColor = UserDataModel.sharedUserData.avatarColorRGB
-       // userImage.backgroundColor = UIColor(red: bgColor[0], green: bgColor[1], blue: bgColor[2], alpha: 1)
+        let bgColor = UserDataModel.sharedUserData.avatarColorRGB
+        userImage.backgroundColor = UIColor(red: bgColor[0], green: bgColor[1], blue: bgColor[2], alpha: 1)
+        
         nameTxt.text = UserDataModel.sharedUserData.name
         emailTxt.text = UserDataModel.sharedUserData.email
          let closeTap = UIGestureRecognizer(target: self, action: #selector(ProfileVC.closeView(_:)))
-        view.addGestureRecognizer(closeTap)
+        bgView.addGestureRecognizer(closeTap)
     }
     @objc func closeView(_ recognizer : UIGestureRecognizer){
         dismiss(animated: true, completion: nil)
