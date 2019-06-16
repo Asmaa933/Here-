@@ -31,7 +31,7 @@ class AddAccountServices{
                   UserDataModel.sharedUserData.setUserData(name: name, email: email, avatarName: avatarName, avatarColor: avatarColor, id: id)
                  
                 }catch{}
-                
+                LocalStore.sharedLocalStore.isLoggedIn = true
               completion(true)
             }else{
                 completion(false)

@@ -111,8 +111,8 @@
                                     <constraint firstAttribute="height" constant="75" id="wIO-mj-vgZ"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xZm-rK-cy0">
-                                <rect key="frame" x="121" y="586.5" width="66" height="46"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xZm-rK-cy0">
+                                <rect key="frame" x="121" y="586" width="134" height="47"/>
                                 <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="26"/>
                                 <state key="normal" title="Log In">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -158,6 +158,7 @@
                             <constraint firstItem="4NI-x9-z3M" firstAttribute="leading" secondItem="H6L-kw-9Gl" secondAttribute="leading" constant="16" id="Fxd-Jv-jAn"/>
                             <constraint firstItem="UxH-MI-gL2" firstAttribute="top" secondItem="RMq-qh-pES" secondAttribute="bottom" constant="20" id="KRr-K7-0TR"/>
                             <constraint firstItem="RMq-qh-pES" firstAttribute="top" secondItem="4NI-x9-z3M" secondAttribute="bottom" constant="20" id="T9y-Or-DLR"/>
+                            <constraint firstItem="H6L-kw-9Gl" firstAttribute="bottom" secondItem="xZm-rK-cy0" secondAttribute="bottom" constant="34" id="V0e-5R-pVG"/>
                             <constraint firstItem="xZm-rK-cy0" firstAttribute="centerY" secondItem="CMP-Ug-tuw" secondAttribute="centerY" id="Xny-1A-BwH"/>
                             <constraint firstItem="RMq-qh-pES" firstAttribute="leading" secondItem="H6L-kw-9Gl" secondAttribute="leading" constant="16" id="ciK-ca-huN"/>
                             <constraint firstItem="xZm-rK-cy0" firstAttribute="leading" secondItem="CMP-Ug-tuw" secondAttribute="trailing" constant="30" id="fBp-ca-zMk"/>
@@ -167,7 +168,6 @@
                             <constraint firstItem="H6L-kw-9Gl" firstAttribute="trailing" secondItem="4NI-x9-z3M" secondAttribute="trailing" constant="285" id="n2m-R3-Azp"/>
                             <constraint firstItem="4NI-x9-z3M" firstAttribute="top" secondItem="H6L-kw-9Gl" secondAttribute="top" constant="25" id="r0U-CM-EJO"/>
                             <constraint firstItem="H6L-kw-9Gl" firstAttribute="bottom" secondItem="CMP-Ug-tuw" secondAttribute="bottom" constant="20" id="w2W-bs-NzY"/>
-                            <constraint firstItem="H6L-kw-9Gl" firstAttribute="trailing" secondItem="xZm-rK-cy0" secondAttribute="trailing" constant="188" id="wby-Uc-6lU"/>
                             <constraint firstItem="rAr-nf-JxW" firstAttribute="centerY" secondItem="RMq-qh-pES" secondAttribute="centerY" id="zrV-ge-Yef"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="H6L-kw-9Gl"/>

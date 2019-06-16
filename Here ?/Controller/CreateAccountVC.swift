@@ -18,8 +18,10 @@ class CreateAccountVC: UIViewController {
     var avatarName = "profileDefault"
     let register = RegisterServices()
     let addaccount = AddAccountServices()
+    let login = LogInServices()
     var avatarColor: [CGFloat] = [0.5,0.5,0.5,1]
     var bgColor : UIColor?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 updateUI()
@@ -84,16 +86,21 @@ updateUI()
         ]
         register.registerUser(parameters: registerParameters) { (success) in
             if success {
-                self.addaccount.createAccount(parameters: accountParameters, completion: { (success) in
+                self.login.logInUser(parameters: registerParameters, completion: { (success) in
                     if success{
-                            self.activityInd.isHidden = true
-                        self.activityInd.stopAnimating()
-                   
-
-                        self.performSegue(withIdentifier: unwindToChannelSegueID, sender: nil)
-                        NotificationCenter.default.post(name: notifUserDataChange, object: nil)
+                        self.addaccount.createAccount(parameters: accountParameters, completion: { (succcess) in
+                            if success{
+                                self.activityInd.isHidden = true
+                                self.activityInd.stopAnimating()
+                                
+                                
+                                self.performSegue(withIdentifier: unwindToChannelSegueID, sender: nil)
+                                NotificationCenter.default.post(name: notifUserDataChange, object: nil)
+                            }
+                        })
                     }
                 })
+               
             }
         }
     }

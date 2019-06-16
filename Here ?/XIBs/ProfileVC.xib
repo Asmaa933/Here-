@@ -63,7 +63,7 @@
                             <rect key="frame" x="291" y="16" width="28" height="28"/>
                             <state key="normal" image="closeButton"/>
                             <connections>
-                                <action selector="closeModalTapped:" destination="-1" eventType="touchUpInside" id="aJp-U4-CSY"/>
+                                <action selector="closeModalTapped:" destination="-1" eventType="touchUpInside" id="zfo-3t-n5c"/>
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k9N-zn-Jmg">
@@ -73,7 +73,7 @@
                                 <color key="titleColor" red="0.25882352939999997" green="0.3294117647" blue="0.72549019609999998" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
                             <connections>
-                                <action selector="logOutBtnTapped:" destination="-1" eventType="touchUpInside" id="rrl-ra-10W"/>
+                                <action selector="logOutBtnTapped:" destination="-1" eventType="touchUpInside" id="d13-M0-gc9"/>
                             </connections>
                         </button>
                     </subviews>
