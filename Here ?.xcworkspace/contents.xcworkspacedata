@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:/Users/asmaa/Desktop/Devslopes/Here ?/Here ?/Model/ChannelModel.swift">
+   </FileRef>
+   <FileRef
       location = "group:Here ?.xcodeproj">
    </FileRef>
    <FileRef

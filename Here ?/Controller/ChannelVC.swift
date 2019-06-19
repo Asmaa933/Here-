@@ -12,6 +12,9 @@ class ChannelVC: UIViewController {
 
     @IBOutlet weak var userImage: CircleImage!
     @IBOutlet weak var loginBtn: UIButton!
+    
+    @IBOutlet weak var channelTableView: UITableView!
+    let message = MessageServices()
     @IBAction func prepareForWind (segue: UIStoryboardSegue){}
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,4 +48,31 @@ self.revealViewController().rearViewRevealWidth = self.view.frame.size.width - 6
             userImage.backgroundColor = UIColor.clear
         }
     }
+    
+    @IBAction func addChannelBtnTapped(_ sender: UIButton) {
+        let addChannel = AddChannelVC()
+        addChannel.modalPresentationStyle = .custom
+        present(addChannel, animated: true, completion: nil)
+    }
+}
+extension ChannelVC: UITableViewDelegate, UITableViewDataSource{
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return message.channels.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: channelCellID, for: indexPath) as? ChannelTableViewCell{
+            let channel = message.channels[indexPath.row]
+         
+            cell.configureCell(channel: channel)
+        return cell
+        }
+        return UITableViewCell()
+    }
+    
+    
+    
 }

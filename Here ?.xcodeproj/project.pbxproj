@@ -33,6 +33,11 @@
 		727E8B3E22AC5EF8005BEB09 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 727E8B3D22AC5EF8005BEB09 /* Assets.xcassets */; };
 		727E8B4122AC5EF8005BEB09 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 727E8B3F22AC5EF8005BEB09 /* LaunchScreen.storyboard */; };
 		72940E8922ADD29B001ECC56 /* CreateAccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72940E8822ADD29B001ECC56 /* CreateAccountVC.swift */; };
+		72B2767D22B9BC97000E5FD5 /* ChannelModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B2767C22B9BC97000E5FD5 /* ChannelModel.swift */; };
+		72B2767F22B9BE7B000E5FD5 /* MessageServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B2767E22B9BE7B000E5FD5 /* MessageServices.swift */; };
+		72B2768122B9C686000E5FD5 /* ChannelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B2768022B9C686000E5FD5 /* ChannelTableViewCell.swift */; };
+		72FA793B22BA0EF700FFFFB4 /* AddChannelVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72FA793922BA0EF700FFFFB4 /* AddChannelVC.swift */; };
+		72FA793C22BA0EF700FFFFB4 /* AddChannelVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72FA793A22BA0EF700FFFFB4 /* AddChannelVC.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +71,11 @@
 		727E8B4022AC5EF8005BEB09 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		727E8B4222AC5EF8005BEB09 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		72940E8822ADD29B001ECC56 /* CreateAccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountVC.swift; sourceTree = "<group>"; };
+		72B2767C22B9BC97000E5FD5 /* ChannelModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ChannelModel.swift; path = "/Users/asmaa/Desktop/Devslopes/Here ?/Here ?/Model/ChannelModel.swift"; sourceTree = "<absolute>"; };
+		72B2767E22B9BE7B000E5FD5 /* MessageServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageServices.swift; sourceTree = "<group>"; };
+		72B2768022B9C686000E5FD5 /* ChannelTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelTableViewCell.swift; sourceTree = "<group>"; };
+		72FA793922BA0EF700FFFFB4 /* AddChannelVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddChannelVC.swift; sourceTree = "<group>"; };
+		72FA793A22BA0EF700FFFFB4 /* AddChannelVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddChannelVC.xib; sourceTree = "<group>"; };
 		C2F5A058708640B6CC42B06F /* Pods-Here ?.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Here ?.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Here ?/Pods-Here ?.debug.xcconfig"; sourceTree = "<group>"; };
 		F69F3DC1C82416E359BDD68B /* Pods-Here ?.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Here ?.release.xcconfig"; path = "Pods/Target Support Files/Pods-Here ?/Pods-Here ?.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -105,6 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				726C853822B319C2009927BA /* UserDataModel.swift */,
+				72B2767C22B9BC97000E5FD5 /* ChannelModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -114,8 +125,9 @@
 			children = (
 				72071F7F22AD0CD100BF5F53 /* GradientView.swift */,
 				7230542222AF6DF3008F08DC /* RoundedButton.swift */,
-				726C853C22B34D9E009927BA /* AvatarCollectionViewCell.swift */,
 				726C853E22B36BA4009927BA /* CircleImage.swift */,
+				726C853C22B34D9E009927BA /* AvatarCollectionViewCell.swift */,
+				72B2768022B9C686000E5FD5 /* ChannelTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -129,6 +141,7 @@
 				72940E8822ADD29B001ECC56 /* CreateAccountVC.swift */,
 				726C853A22B348C9009927BA /* AvatarPickerVC.swift */,
 				724941F822B48FE100706EA8 /* ProfileVC.swift */,
+				72FA793922BA0EF700FFFFB4 /* AddChannelVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -140,6 +153,7 @@
 				7230542422AF75D1008F08DC /* LogInServices.swift */,
 				7230542622AF8746008F08DC /* AddAccountServices.swift */,
 				7208C8C922B5E9C800C1D8DE /* FindUserByEmail.swift */,
+				72B2767E22B9BE7B000E5FD5 /* MessageServices.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -157,6 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				724941F922B48FE100706EA8 /* ProfileVC.xib */,
+				72FA793A22BA0EF700FFFFB4 /* AddChannelVC.xib */,
 			);
 			path = XIBs;
 			sourceTree = "<group>";
@@ -277,6 +292,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				72FA793C22BA0EF700FFFFB4 /* AddChannelVC.xib in Resources */,
 				724941FB22B48FE100706EA8 /* ProfileVC.xib in Resources */,
 				727E8B4122AC5EF8005BEB09 /* LaunchScreen.storyboard in Resources */,
 				727E8B3E22AC5EF8005BEB09 /* Assets.xcassets in Resources */,
@@ -347,10 +363,14 @@
 				726C854422B38A6C009927BA /* HelpingMethods.swift in Sources */,
 				7208C8CA22B5E9C800C1D8DE /* FindUserByEmail.swift in Sources */,
 				7238E42422ADBC5A0002CD9F /* LoginVC.swift in Sources */,
+				72FA793B22BA0EF700FFFFB4 /* AddChannelVC.swift in Sources */,
 				726C853D22B34D9E009927BA /* AvatarCollectionViewCell.swift in Sources */,
+				72B2767F22B9BE7B000E5FD5 /* MessageServices.swift in Sources */,
 				72071F8022AD0CD100BF5F53 /* GradientView.swift in Sources */,
+				72B2767D22B9BC97000E5FD5 /* ChannelModel.swift in Sources */,
 				7230542722AF8746008F08DC /* AddAccountServices.swift in Sources */,
 				7230541E22AF51AF008F08DC /* LocalStore.swift in Sources */,
+				72B2768122B9C686000E5FD5 /* ChannelTableViewCell.swift in Sources */,
 				7230542322AF6DF3008F08DC /* RoundedButton.swift in Sources */,
 				7230541C22AF513C008F08DC /* RegisterServices.swift in Sources */,
 				72071F7522ACF36600BF5F53 /* SWRevealViewController.m in Sources */,

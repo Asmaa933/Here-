@@ -15,6 +15,7 @@ let authURL = "\(baseURL)account/register/"
 let loginURL = "\(baseURL)account/login/"
 let createAccountURL = "\(baseURL)user/add/"
 let findUserByEmailURL = "\(baseURL)user/byEmail/"
+let channelURL = "\(baseURL)channel"
 let accessToken = "token"
 
 let userEmailKey = "userEmail"

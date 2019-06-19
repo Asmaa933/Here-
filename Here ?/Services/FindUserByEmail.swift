@@ -13,7 +13,7 @@ class FindUserByEmail{
     
     func findUserByEmail(completion: @escaping CompletionHandler) {
         let header = ["Authorization":"Bearer \(LocalStore.sharedLocalStore.getAccessToken() ?? "")",
-            "Content-Type": "application/json"
+           
         ]
          let findUserURL = findUserByEmailURL + LocalStore.sharedLocalStore.userEmail
         Alamofire.request(findUserURL, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: header).validate().responseJSON{(response) in
