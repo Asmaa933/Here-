@@ -13,6 +13,7 @@
 		72071F7C22ACFA5A00BF5F53 /* ChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72071F7B22ACFA5A00BF5F53 /* ChatVC.swift */; };
 		72071F7E22ACFBE500BF5F53 /* ChannelVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72071F7D22ACFBE500BF5F53 /* ChannelVC.swift */; };
 		72071F8022AD0CD100BF5F53 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72071F7F22AD0CD100BF5F53 /* GradientView.swift */; };
+		7208C8CA22B5E9C800C1D8DE /* FindUserByEmail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7208C8C922B5E9C800C1D8DE /* FindUserByEmail.swift */; };
 		7230541C22AF513C008F08DC /* RegisterServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7230541B22AF513C008F08DC /* RegisterServices.swift */; };
 		7230541E22AF51AF008F08DC /* LocalStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7230541D22AF51AF008F08DC /* LocalStore.swift */; };
 		7230542122AF5294008F08DC /* ApiConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7230542022AF5294008F08DC /* ApiConstants.swift */; };
@@ -43,6 +44,7 @@
 		72071F7B22ACFA5A00BF5F53 /* ChatVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatVC.swift; sourceTree = "<group>"; };
 		72071F7D22ACFBE500BF5F53 /* ChannelVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelVC.swift; sourceTree = "<group>"; };
 		72071F7F22AD0CD100BF5F53 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		7208C8C922B5E9C800C1D8DE /* FindUserByEmail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindUserByEmail.swift; sourceTree = "<group>"; };
 		7230541B22AF513C008F08DC /* RegisterServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterServices.swift; sourceTree = "<group>"; };
 		7230541D22AF51AF008F08DC /* LocalStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStore.swift; sourceTree = "<group>"; };
 		7230542022AF5294008F08DC /* ApiConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiConstants.swift; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 				7230541B22AF513C008F08DC /* RegisterServices.swift */,
 				7230542422AF75D1008F08DC /* LogInServices.swift */,
 				7230542622AF8746008F08DC /* AddAccountServices.swift */,
+				7208C8C922B5E9C800C1D8DE /* FindUserByEmail.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -342,6 +345,7 @@
 				72940E8922ADD29B001ECC56 /* CreateAccountVC.swift in Sources */,
 				726C853B22B348C9009927BA /* AvatarPickerVC.swift in Sources */,
 				726C854422B38A6C009927BA /* HelpingMethods.swift in Sources */,
+				7208C8CA22B5E9C800C1D8DE /* FindUserByEmail.swift in Sources */,
 				7238E42422ADBC5A0002CD9F /* LoginVC.swift in Sources */,
 				726C853D22B34D9E009927BA /* AvatarCollectionViewCell.swift in Sources */,
 				72071F8022AD0CD100BF5F53 /* GradientView.swift in Sources */,

@@ -8,7 +8,7 @@ target 'Here ?' do
   use_frameworks!
 
   # Pods for Here ?
- pod 'Alamofire'
+pod 'Alamofire'
 pod 'SwiftyJSON'
 pod 'Socket.IO-Client-Swift'
 end

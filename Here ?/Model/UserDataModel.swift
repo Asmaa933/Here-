@@ -14,7 +14,6 @@ class UserDataModel{
     public private(set) var avatarName = ""
     public private(set) var avatarColor = ""
     public private(set) var id = ""
-    public private(set) var avatarColorRGB :[CGFloat] = [0.5,0.5,0.5,1]
     
     func setUserData(name:String , email: String , avatarName: String, avatarColor:String, id : String){
         self.name = name
@@ -24,12 +23,39 @@ class UserDataModel{
         self.id = id
         
     }
+  func returnUIColor(components: String) -> UIColor {
+    let scanner = Scanner(string: components)
+        let skipped = CharacterSet(charactersIn: "[], ")
+        let comma = CharacterSet(charactersIn: ",")
+        scanner.charactersToBeSkipped = skipped
+        
+        var r, g, b, a : NSString?
+        
+        scanner.scanUpToCharacters(from: comma, into: &r)
+        scanner.scanUpToCharacters(from: comma, into: &g)
+        scanner.scanUpToCharacters(from: comma, into: &b)
+        scanner.scanUpToCharacters(from: comma, into: &a)
+        
+        let defaultColor = UIColor.lightGray
+        
+        guard let rUnwrapped = r else { return defaultColor }
+        guard let gUnwrapped = g else { return defaultColor }
+        guard let bUnwrapped = b else { return defaultColor }
+        guard let aUnwrapped = a else { return defaultColor }
+        
+        let rfloat = CGFloat(rUnwrapped.doubleValue)
+        let gfloat = CGFloat(gUnwrapped.doubleValue)
+        let bfloat = CGFloat(bUnwrapped.doubleValue)
+        let afloat = CGFloat(aUnwrapped.doubleValue)
+        
+        let newUIColor = UIColor(red: rfloat, green: gfloat, blue: bfloat, alpha: afloat)
+        return newUIColor
+    
+    }
     func setAvatarName(avatarName: String){
     self.avatarName = avatarName
     }
-    func setRGBColor(avatarColorRGB: [CGFloat]){
-        self.avatarColorRGB = avatarColorRGB
-    }
+    
 
 func logOutUser(){
     name = ""
@@ -37,10 +63,11 @@ func logOutUser(){
     avatarName = ""
     avatarColor = ""
     id = ""
-    avatarColorRGB = [0.5,0.5,0.5,1]
 
+    
     LocalStore.sharedLocalStore.isLoggedIn = false
     LocalStore.sharedLocalStore.deleteAccessToken()
     LocalStore.sharedLocalStore.userEmail = ""
 }
+
 }

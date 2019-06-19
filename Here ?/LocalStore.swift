@@ -19,9 +19,9 @@ static let sharedLocalStore = LocalStore()
             userDefaults.set(newValue, forKey: loggedInKey)
         }
     }
-    var userEmail: String?{
+    var userEmail: String{
         get{
-            return userDefaults.value(forKey: userEmailKey) as? String
+            return userDefaults.value(forKey: userEmailKey) as! String
         }
         set{
             return userDefaults.set(newValue, forKey: userEmailKey)

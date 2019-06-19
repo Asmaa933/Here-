@@ -22,8 +22,8 @@ updateUI()
     }
     func updateUI(){
         userImage.image = UIImage(named: UserDataModel.sharedUserData.avatarName)
-        let bgColor = UserDataModel.sharedUserData.avatarColorRGB
-        userImage.backgroundColor = UIColor(red: bgColor[0], green: bgColor[1], blue: bgColor[2], alpha: 1)
+         let avatarColor = UserDataModel.sharedUserData.returnUIColor(components: UserDataModel.sharedUserData.avatarColor)
+        userImage.backgroundColor = avatarColor
         
         nameTxt.text = UserDataModel.sharedUserData.name
         emailTxt.text = UserDataModel.sharedUserData.email

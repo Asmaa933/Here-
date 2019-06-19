@@ -20,7 +20,7 @@ class CreateAccountVC: UIViewController {
     let addaccount = AddAccountServices()
     let login = LogInServices()
       var avatarName = "profileDefault"
-    var avatarColor: [CGFloat] = [0.5,0.5,0.5,1]
+    var avatarColor = "[0.5,0.5,0.5,1]"
     var bgColor : UIColor?
     
     override func viewDidLoad() {
@@ -63,8 +63,8 @@ updateUI()
           let randomG = CGFloat(arc4random_uniform(255)) / 255
           let randomB = CGFloat(arc4random_uniform(255)) / 255
         bgColor = UIColor(red: randomR, green: randomG, blue: randomB, alpha: 1)
-        avatarColor = [randomR,randomG,randomB,1]
-        UserDataModel.sharedUserData.setRGBColor(avatarColorRGB: avatarColor)
+        avatarColor = "[\(randomR),\(randomG),\(randomB),1]"
+        
         UIView.animate(withDuration: 0.2) {
             self.userImage.backgroundColor = self.bgColor
 
@@ -75,13 +75,17 @@ updateUI()
     @IBAction func createAccountTapped(_ sender: UIButton) {
         activityInd.isHidden = false
         activityInd.startAnimating()
+        guard let userName = userNameTxt.text,userNameTxt.text != nil else{return}
+        guard let email = emailTxt.text?.lowercased() , emailTxt.text != nil else {return}
+        guard let password = passwordTxt.text , passwordTxt.text != nil else {return}
+        
         let registerParameters :[String : Any] = [
-            "email" : emailTxt.text?.lowercased() ?? "",
-            "password" : passwordTxt.text ?? ""
+            "email" : email,
+            "password" : password
         ]
         let accountParameters:[String : Any] = [
-            "email" : emailTxt.text?.lowercased() ?? "",
-            "name" : userNameTxt.text ?? "",
+            "email" : email,
+            "name" : userName,
             "avatarName" : avatarName,
             "avatarColor" : "\(avatarColor)"
         ]

@@ -14,7 +14,7 @@ let baseURL = "https://herechatt.herokuapp.com/v1/"
 let authURL = "\(baseURL)account/register/"
 let loginURL = "\(baseURL)account/login/"
 let createAccountURL = "\(baseURL)user/add/"
-
+let findUserByEmailURL = "\(baseURL)user/byEmail/"
 let accessToken = "token"
 
 let userEmailKey = "userEmail"
