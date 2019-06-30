@@ -9,17 +9,30 @@
 import UIKit
 
 class ChannelVC: UIViewController {
-
+var channel = [ChannelModel]()
     @IBOutlet weak var userImage: CircleImage!
     @IBOutlet weak var loginBtn: UIButton!
     
     @IBOutlet weak var channelTableView: UITableView!
     let message = MessageServices()
+    let addchannel  = AddChannelService()
     @IBAction func prepareForWind (segue: UIStoryboardSegue){}
     override func viewDidLoad() {
         super.viewDidLoad()
 self.revealViewController().rearViewRevealWidth = self.view.frame.size.width - 60
         NotificationCenter.default.addObserver(self, selector: #selector (ChannelVC.userDataDidChange(_:)), name: notifUserDataChange, object: nil)
+        channelTableView.tableFooterView = UIView()
+        addchannel.getChannel { (success) in
+            if success{
+                self.channelTableView.reloadData()
+                
+            }
+            
+            
+        }
+        print (channel)
+
+        // updateChannels()
     }
     override func viewDidAppear(_ animated: Bool) {
         setupUserData()
@@ -53,6 +66,14 @@ self.revealViewController().rearViewRevealWidth = self.view.frame.size.width - 6
         let addChannel = AddChannelVC()
         addChannel.modalPresentationStyle = .custom
         present(addChannel, animated: true, completion: nil)
+    }
+    func updateChannels(){
+        addchannel.getChannel { (success) in
+            if success{
+                self.channelTableView.reloadData()
+        
+            }
+        }
     }
 }
 extension ChannelVC: UITableViewDelegate, UITableViewDataSource{

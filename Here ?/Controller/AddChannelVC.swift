@@ -9,6 +9,7 @@
 import UIKit
 
 class AddChannelVC: UIViewController {
+    var addChannel = AddChannelService()
     @IBOutlet weak var bgView: UIView!
     @IBOutlet weak var nameTxt: UITextField!
     
@@ -36,6 +37,13 @@ updateUI()
     
    
     @IBAction func createChannelBtnTapped(_ sender: UIButton) {
+        guard let channelName = nameTxt.text , nameTxt.text != "" else {return}
+        guard let channelDesc = descTxt.text , descTxt.text != "" else {return}
+        addChannel.addChannel(channelName: channelName, channelDescription: channelDesc) { (success) in
+            if success{
+                self.dismiss(animated: true, completion: nil)
+            }
+        }
     }
     
 }

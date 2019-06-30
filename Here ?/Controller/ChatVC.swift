@@ -23,7 +23,9 @@ updateSlideMenu()
         self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
         if LocalStore.sharedLocalStore.isLoggedIn{
+          
             findUser.findUserByEmail { (success) in
+               
                 NotificationCenter.default.post(name: notifUserDataChange, object: nil)
             }
         }

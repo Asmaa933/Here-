@@ -27,7 +27,7 @@ updateUI()
         
         nameTxt.text = UserDataModel.sharedUserData.name
         emailTxt.text = UserDataModel.sharedUserData.email
-         let closeTap = UIGestureTapRecognizer(target: self, action: #selector(ProfileVC.closeView(_:)))
+         let closeTap = UITapGestureRecognizer(target: self, action: #selector(ProfileVC.closeView(_:)))
         bgView.addGestureRecognizer(closeTap)
     }
     @objc func closeView(_ recognizer : UITapGestureRecognizer){

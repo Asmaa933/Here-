@@ -1,8 +1,9 @@
 //
 //  ChannelModel.swift
-//  
+//  Here ?
 //
-//  Created by AsMaa on 6/19/19.
+//  Created by AsMaa on 6/23/19.
+//  Copyright © 2019 AsMaa. All rights reserved.
 //
 
 import Foundation
