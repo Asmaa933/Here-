@@ -47,20 +47,21 @@
                                         </constraints>
                                         <state key="normal" image="smackBurger"/>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Here" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RQy-4P-yGY">
-                                        <rect key="frame" x="156" y="30" width="63" height="48"/>
-                                        <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="30"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Here?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RQy-4P-yGY">
+                                        <rect key="frame" x="66" y="34" width="279" height="40"/>
+                                        <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="25"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.29019607843137252" green="0.30196078431372547" blue="0.84705882352941175" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="RQy-4P-yGY" secondAttribute="trailing" constant="30" id="3PO-vh-cjh"/>
                                     <constraint firstAttribute="height" constant="75" id="5Pi-XL-QJQ"/>
                                     <constraint firstItem="9Bo-d6-f53" firstAttribute="leading" secondItem="JA7-wj-96J" secondAttribute="leading" constant="12" id="C9V-yK-uAj"/>
                                     <constraint firstAttribute="bottom" secondItem="9Bo-d6-f53" secondAttribute="bottom" constant="12" id="TDj-NC-KFi"/>
                                     <constraint firstItem="RQy-4P-yGY" firstAttribute="centerY" secondItem="9Bo-d6-f53" secondAttribute="centerY" id="TR0-VB-lhJ"/>
-                                    <constraint firstItem="RQy-4P-yGY" firstAttribute="centerX" secondItem="JA7-wj-96J" secondAttribute="centerX" id="lYw-op-bch"/>
+                                    <constraint firstItem="RQy-4P-yGY" firstAttribute="leading" secondItem="9Bo-d6-f53" secondAttribute="trailing" constant="30" id="Z4d-ah-p1P"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -73,13 +74,13 @@
                         <viewLayoutGuide key="safeArea" id="hjT-if-Bsp"/>
                     </view>
                     <connections>
-                        <outlet property="channelLabel" destination="RQy-4P-yGY" id="ruQ-QS-Nny"/>
+                        <outlet property="channelLabel" destination="RQy-4P-yGY" id="Mx9-Ph-1Ue"/>
                         <outlet property="menuBtn" destination="9Bo-d6-f53" id="exA-4s-F6m"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OLn-FA-HXS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="814" y="428"/>
+            <point key="canvasLocation" x="813.60000000000002" y="427.73613193403304"/>
         </scene>
         <!--ChannelVC-->
         <scene sceneID="zDa-5B-Un1">
@@ -181,6 +182,7 @@
                         <viewLayoutGuide key="safeArea" id="H6L-kw-9Gl"/>
                     </view>
                     <connections>
+                        <outlet property="addChannelBtn" destination="rAr-nf-JxW" id="yku-oY-7da"/>
                         <outlet property="channelTableView" destination="UxH-MI-gL2" id="qW3-31-mSa"/>
                         <outlet property="loginBtn" destination="xZm-rK-cy0" id="Eag-ad-bmV"/>
                         <outlet property="userImage" destination="CMP-Ug-tuw" id="eR5-Ru-n9v"/>

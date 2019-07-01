@@ -43,7 +43,7 @@ NotificationCenter.default.addObserver(self, selector: #selector (ChatVC.channel
     }
     @objc func userDataDidChange(_ notif : Notification){
         if LocalStore.sharedLocalStore.isLoggedIn{
-        getChannels()
+        getChannelsAndMessages()
         }else{
             let alert = alertMessage(message: "Please Login")
             present(alert, animated: true, completion: nil)
@@ -52,12 +52,29 @@ NotificationCenter.default.addObserver(self, selector: #selector (ChatVC.channel
     }
     @objc func channelSelected(_ notif : Notification){
         
-    
+    updateWithChannel()
     }
   
-    func getChannels(){
+    func getChannelsAndMessages(){
         ChannelServices.instance.getAllChannels { (success) in
-     
+            if success{
+            if ChannelServices.instance.channels.count > 0 {
+                ChannelServices.instance.selectedChannel = ChannelServices.instance.channels[0]
+                self.updateWithChannel()
+            }else{
+                self.channelLabel.text = "create channel first"
+                }
+            }
+        }
+    }
+        func updateWithChannel(){
+            let channel = ChannelServices.instance.selectedChannel?.channelTitle ?? "Here?"
+            channelLabel.text = "#\(channel)"
+        }
+    func getMessage(){
+        guard let channelId = ChannelServices.instance.selectedChannel?.id else {return}
+        MessageService.instance.findMessagesForChannel(channelId: channelId) { (success) in
+            
         }
     }
 
