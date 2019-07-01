@@ -12,7 +12,7 @@ class ChannelVC: UIViewController {
 
     @IBOutlet weak var userImage: CircleImage!
     @IBOutlet weak var loginBtn: UIButton!
-    
+    @IBOutlet weak var addChannelBtn : UIButton!
     @IBOutlet weak var channelTableView: UITableView!
    
     
@@ -21,6 +21,7 @@ class ChannelVC: UIViewController {
         super.viewDidLoad()
 self.revealViewController().rearViewRevealWidth = self.view.frame.size.width - 60
         NotificationCenter.default.addObserver(self, selector: #selector (ChannelVC.userDataDidChange(_:)), name: notifUserDataChange, object: nil)
+                NotificationCenter.default.addObserver(self, selector: #selector (ChannelVC.channelLoaded(_:)), name: notiChannelLoaded, object: nil)
         channelTableView.tableFooterView = UIView()
         
         SocketService.sharedSocket.getChannel{ (success) in
@@ -44,6 +45,9 @@ self.revealViewController().rearViewRevealWidth = self.view.frame.size.width - 6
     @objc func userDataDidChange(_ notif : Notification){
        setupUserData()
     }
+    @objc func channelLoaded(_ notif : Notification){
+        channelTableView.reloadData()
+    }
     @IBAction func loginBtnTapped(_ sender: UIButton) {
         if LocalStore.sharedLocalStore.isLoggedIn{
             let profile = ProfileVC()
@@ -54,8 +58,9 @@ self.revealViewController().rearViewRevealWidth = self.view.frame.size.width - 6
     }
     }
     func setupUserData(){
-        channelTableView.reloadData()
+  
         if LocalStore.sharedLocalStore.isLoggedIn{
+           addChannelBtn.isEnabled = true
             loginBtn.setTitle(UserDataModel.sharedUserData.name, for: .normal)
             userImage.image = UIImage(named: UserDataModel.sharedUserData.avatarName)
             let avatarColor = UserDataModel.sharedUserData.returnUIColor(components: UserDataModel.sharedUserData.avatarColor)
@@ -63,17 +68,21 @@ self.revealViewController().rearViewRevealWidth = self.view.frame.size.width - 6
       
             
         }else{
+            addChannelBtn.isEnabled = false
             loginBtn.setTitle("Login", for: .normal)
             userImage.image = UIImage(named: "menuProfileIcon")
             userImage.backgroundColor = UIColor.clear
+            channelTableView.reloadData()
+            
         }
     }
     
     @IBAction func addChannelBtnTapped(_ sender: UIButton) {
+        if LocalStore.sharedLocalStore.isLoggedIn{
         let addChannel = AddChannelVC()
         addChannel.modalPresentationStyle = .custom
         present(addChannel, animated: true, completion: nil)
-        
+        }
     }
  
 }
@@ -94,7 +103,12 @@ extension ChannelVC: UITableViewDelegate, UITableViewDataSource{
         }
         return UITableViewCell()
     }
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+       let channel = ChannelServices.instance.channels[indexPath.row]
+        ChannelServices.instance.selectedChannel = channel
+        NotificationCenter.default.post(name: notiChannelSelected, object: nil)
+    self.revealViewController()?.revealToggle(self)
+    }
     
     
 }

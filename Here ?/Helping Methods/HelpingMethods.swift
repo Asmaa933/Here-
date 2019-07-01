@@ -8,4 +8,10 @@
 
 import Foundation
 
+ func alertMessage(message: String) ->UIAlertController{
+    let alert = UIAlertController(title: "Alert!", message: message, preferredStyle: .alert)
+    let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
+    alert.addAction(action)
+    return alert
+}
 

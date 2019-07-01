@@ -11,6 +11,7 @@ import SwiftyJSON
 class ChannelServices{
    static let instance =  ChannelServices()
 var channels = [ChannelModel]()
+    var selectedChannel: ChannelModel?
     func getAllChannels(completion: @escaping CompletionHandler){
     
         
@@ -28,7 +29,7 @@ var channels = [ChannelModel]()
                         self.channels.append(channel)}
                     }
                 }catch{}
-                print(self.channels[3].channelTitle)
+               NotificationCenter.default.post(name: notiChannelLoaded, object: nil)
                 completion(true)
             
             }else{
@@ -36,5 +37,8 @@ var channels = [ChannelModel]()
                 debugPrint(response.result.error as Any)
             }
         }
+    }
+    func clearChannels (){
+        channels.removeAll()
     }
 }

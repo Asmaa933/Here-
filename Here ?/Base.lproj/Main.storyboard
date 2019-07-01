@@ -73,6 +73,7 @@
                         <viewLayoutGuide key="safeArea" id="hjT-if-Bsp"/>
                     </view>
                     <connections>
+                        <outlet property="channelLabel" destination="RQy-4P-yGY" id="ruQ-QS-Nny"/>
                         <outlet property="menuBtn" destination="9Bo-d6-f53" id="exA-4s-F6m"/>
                     </connections>
                 </viewController>
@@ -100,7 +101,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rAr-nf-JxW">
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rAr-nf-JxW">
                                 <rect key="frame" x="263" y="98.5" width="22" height="22"/>
                                 <state key="normal" image="addChannelButton"/>
                                 <connections>

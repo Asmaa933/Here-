@@ -68,6 +68,7 @@ func logOutUser(){
     LocalStore.sharedLocalStore.isLoggedIn = false
     LocalStore.sharedLocalStore.deleteAccessToken()
     LocalStore.sharedLocalStore.userEmail = ""
+    ChannelServices.instance.clearChannels()
 }
 
 }

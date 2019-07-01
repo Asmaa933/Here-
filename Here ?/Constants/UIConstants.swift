@@ -23,3 +23,5 @@ let avatarCellID = "avatarCell"
 let placeHolderColor = #colorLiteral(red: 0.3266413212, green: 0.4215201139, blue: 0.7752227187, alpha: 0.5)
 //notifications
 let notifUserDataChange = Notification.Name("notifUserDataChanged")
+let notiChannelLoaded = Notification.Name("channelsLoaded")
+let notiChannelSelected = Notification.Name("channelSelected")
