@@ -11,12 +11,9 @@ import Alamofire
 import SwiftyJSON
 class AddAccountServices{
     func createAccount(parameters: [String: Any] , completion: @escaping CompletionHandler){
-        let header = [
-            "Authorization":"Bearer \(LocalStore.sharedLocalStore.getAccessToken() ?? "")",
-            "Content-Type":"application/json"
-                      ]
+      
         
-        Alamofire.request(createAccountURL, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: header).validate().responseJSON { (response) in
+        Alamofire.request(createAccountURL, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: bearerHeader).validate().responseJSON { (response) in
             if response.result.error == nil{
                 guard let data = response.data else {return}
 

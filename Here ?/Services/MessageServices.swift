@@ -9,10 +9,12 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 class MessageServices{
+   static let instance =  MessageServices()
 var channels = [ChannelModel]()
     func getAllChannels(completion: @escaping CompletionHandler){
-         let header = ["Authorization":"Bearer \(LocalStore.sharedLocalStore.getAccessToken() ?? "")"]
-        Alamofire.request(channelURL, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: header).validate().responseJSON { (response) in
+    
+        
+        Alamofire.request(channelURL, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: bearerHeader).validate().responseJSON { (response) in
             if response.result.error == nil{
                 guard let data = response.data else {return}
                 do{
@@ -26,7 +28,7 @@ var channels = [ChannelModel]()
                         self.channels.append(channel)}
                     }
                 }catch{}
-                
+                print(self.channels[3].channelTitle)
                 completion(true)
             
             }else{

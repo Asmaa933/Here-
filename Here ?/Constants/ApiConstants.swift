@@ -17,6 +17,10 @@ let createAccountURL = "\(baseURL)user/add/"
 let findUserByEmailURL = "\(baseURL)user/byEmail/"
 let channelURL = "\(baseURL)channel/"
 
+ let header  = ["Content-Type" : "application/json"]
+let bearerHeader = ["Authorization":"Bearer \(LocalStore.sharedLocalStore.getAccessToken() ?? "")",
+    "Content-Type": "application/json"
+]
 let accessToken = "token"
 
 let userEmailKey = "userEmail"

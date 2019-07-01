@@ -12,11 +12,9 @@ import SwiftyJSON
 class FindUserByEmail{
     
     func findUserByEmail(completion: @escaping CompletionHandler) {
-        let header = ["Authorization":"Bearer \(LocalStore.sharedLocalStore.getAccessToken() ?? "")",
-           
-        ]
+    
          let findUserURL = findUserByEmailURL + LocalStore.sharedLocalStore.userEmail
-        Alamofire.request(findUserURL, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: header).validate().responseJSON{(response) in
+        Alamofire.request(findUserURL, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: bearerHeader).validate().responseJSON{(response) in
        
            if response.result.error == nil {
             guard let data = response.data else {return}

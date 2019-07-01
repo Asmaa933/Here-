@@ -12,12 +12,12 @@ class ChatVC: UIViewController {
 
     @IBOutlet weak var menuBtn: UIButton!
 let findUser = FindUserByEmail()
+    
+    let message = AddChannelService()
     override func viewDidLoad() {
         super.viewDidLoad()
 updateSlideMenu()
-        
     }
-    
     func updateSlideMenu(){
         menuBtn.addTarget(self.revealViewController(), action: #selector (SWRevealViewController.revealToggle(_:)), for: .touchUpInside)
         self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
@@ -27,6 +27,13 @@ updateSlideMenu()
             findUser.findUserByEmail { (success) in
                
                 NotificationCenter.default.post(name: notifUserDataChange, object: nil)
+            }
+        }
+        MessageServices.instance.getAllChannels { (success) in
+            if success{
+                print("success")
+            }else{
+                print("fail")
             }
         }
     }

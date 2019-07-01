@@ -11,7 +11,7 @@ import Alamofire
 import SwiftyJSON
 class LogInServices{
     func logInUser(parameters: [String:Any] , completion: @escaping CompletionHandler){
-        let header  = ["Content-Type" : "application/json"]
+       
         Alamofire.request(loginURL, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: header).responseJSON { (response) in
             if response.result.error == nil{
                 guard let data = response.data else{return}
