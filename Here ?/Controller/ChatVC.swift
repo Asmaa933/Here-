@@ -13,7 +13,6 @@ class ChatVC: UIViewController {
     @IBOutlet weak var menuBtn: UIButton!
 let findUser = FindUserByEmail()
     
-    let message = AddChannelService()
     override func viewDidLoad() {
         super.viewDidLoad()
 updateSlideMenu()
@@ -29,12 +28,8 @@ updateSlideMenu()
                 NotificationCenter.default.post(name: notifUserDataChange, object: nil)
             }
         }
-        MessageServices.instance.getAllChannels { (success) in
-            if success{
-                print("success")
-            }else{
-                print("fail")
-            }
+        ChannelServices.instance.getAllChannels { (success) in
+       
         }
     }
   

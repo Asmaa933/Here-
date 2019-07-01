@@ -8,8 +8,8 @@
 import Foundation
 import Alamofire
 import SwiftyJSON
-class MessageServices{
-   static let instance =  MessageServices()
+class ChannelServices{
+   static let instance =  ChannelServices()
 var channels = [ChannelModel]()
     func getAllChannels(completion: @escaping CompletionHandler){
     

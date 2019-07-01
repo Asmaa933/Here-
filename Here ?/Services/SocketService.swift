@@ -23,4 +23,19 @@ class SocketService: NSObject {
     func closeConnection(){
         socket.disconnect()
     }
+    func addChannel(channelName: String, channelDescription: String, completion: @escaping CompletionHandler) {
+        SocketService.sharedSocket.socket.emit("newChannel", channelName, channelDescription)
+        completion(true)
+}
+    func getChannel(completion: @escaping CompletionHandler) {
+        SocketService.sharedSocket.socket.on("channelCreated") { (dataArray, ack) in
+            guard let channelName = dataArray[0] as? String else { return }
+            guard let channelDesc = dataArray[1] as? String else { return }
+            guard let channelId = dataArray[2] as? String else { return }
+            
+            let newChannel = ChannelModel(channelTitle: channelName, channelDescription: channelDesc, id: channelId)
+            ChannelServices.instance.channels.append(newChannel)
+            completion(true)
+        }
+}
 }
