@@ -19,6 +19,7 @@ let avataPickerSegueID = "avataPickerSegue"
 //cells
 let channelCellID = "channelCell"
 let avatarCellID = "avatarCell"
+let messageCellID = "messageCell"
 //color
 let placeHolderColor = #colorLiteral(red: 0.3266413212, green: 0.4215201139, blue: 0.7752227187, alpha: 0.5)
 //notifications

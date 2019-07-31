@@ -10,13 +10,18 @@ import UIKit
 
 class ChatVC: UIViewController {
 
+    @IBOutlet weak var messageTableView: UITableView!
     @IBOutlet weak var channelLabel: UILabel!
     @IBOutlet weak var menuBtn: UIButton!
-let findUser = FindUserByEmail()
-    
+    @IBOutlet weak var messageTxt: UITextField!
+    let findUser = FindUserByEmail()
     override func viewDidLoad() {
         super.viewDidLoad()
-updateSlideMenu()
+        view.bindToKeyboard()
+        updateSlideMenu()
+        let tap = UITapGestureRecognizer(target: self, action: #selector(ChatVC.handleTap))
+        view.addGestureRecognizer(tap)
+        messageTableView.tableFooterView = UIView()
     }
     func updateSlideMenu(){
         menuBtn.addTarget(self.revealViewController(), action: #selector (SWRevealViewController.revealToggle(_:)), for: .touchUpInside)
@@ -24,7 +29,7 @@ updateSlideMenu()
         self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
 
         NotificationCenter.default.addObserver(self, selector: #selector (ChatVC.userDataDidChange(_:)), name: notifUserDataChange, object: nil)
-NotificationCenter.default.addObserver(self, selector: #selector (ChatVC.channelSelected(_:)), name: notiChannelSelected, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector (ChatVC.channelSelected(_:)), name: notiChannelSelected, object: nil)
         
         if LocalStore.sharedLocalStore.isLoggedIn{
           
@@ -50,19 +55,22 @@ NotificationCenter.default.addObserver(self, selector: #selector (ChatVC.channel
             
         }
     }
+    @objc func handleTap(){
+        view.endEditing(true)
+    }
     @objc func channelSelected(_ notif : Notification){
         
     updateWithChannel()
     }
   
     func getChannelsAndMessages(){
-        ChannelServices.instance.getAllChannels { (success) in
+        ChannelServices.instance.getAllChannels { [weak self] (success) in
             if success{
             if ChannelServices.instance.channels.count > 0 {
                 ChannelServices.instance.selectedChannel = ChannelServices.instance.channels[0]
-                self.updateWithChannel()
+                self?.updateWithChannel()
             }else{
-                self.channelLabel.text = "create channel first"
+                self?.channelLabel.text = "create channel first"
                 }
             }
         }
@@ -74,8 +82,39 @@ NotificationCenter.default.addObserver(self, selector: #selector (ChatVC.channel
     func getMessage(){
         guard let channelId = ChannelServices.instance.selectedChannel?.id else {return}
         MessageService.instance.findMessagesForChannel(channelId: channelId) { (success) in
+            self.messageTableView.reloadData()
             
         }
     }
 
+    @IBAction func sendBtnTapped(_ sender: UIButton) {
+       if LocalStore.sharedLocalStore.isLoggedIn{
+        guard let channelId = ChannelServices.instance.selectedChannel?.id else {return}
+        guard let message = messageTxt.text else {return}
+        SocketService.sharedSocket.addMessage(messageBody: message, userId: UserDataModel.sharedUserData.id, channelId: channelId) { [weak self] (success) in
+            self?.messageTxt.text = ""
+            self?.messageTxt.resignFirstResponder()
+        }
+        }
+    
+    }
+}
+extension ChatVC :  UITableViewDelegate, UITableViewDataSource{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return MessageService.instance.messages.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if let cell =  tableView.dequeueReusableCell(withIdentifier: messageCellID, for: indexPath) as? MessageCell{
+            let message = MessageService.instance.messages[indexPath.row]
+        cell.configureCell(message: message)
+            return cell
+       
+        }else{
+            return UITableViewCell()
+        }
+        
+    }
+    
+    
 }

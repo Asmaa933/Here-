@@ -20,9 +20,9 @@ let messageURL = "\(baseURL)message/byChannel/"
 
 
  let header  = ["Content-Type" : "application/json"]
-let bearerHeader = ["Authorization":"Bearer \(LocalStore.sharedLocalStore.getAccessToken() ?? "")",
+let bearerHeader = ["Authorization" : "Bearer \(LocalStore.sharedLocalStore.getAccessToken() ?? "")",
     "Content-Type": "application/json"
-]
+                ]
 let accessToken = "token"
 
 let userEmailKey = "userEmail"
