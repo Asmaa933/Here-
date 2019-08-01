@@ -167,8 +167,8 @@
 				7230542622AF8746008F08DC /* AddAccountServices.swift */,
 				7208C8C922B5E9C800C1D8DE /* FindUserByEmail.swift */,
 				72B2767E22B9BE7B000E5FD5 /* ChannelServices.swift */,
-				729DEFD222BFA5920054FA32 /* SocketService.swift */,
 				7244D84922CA5790005B9653 /* MessageService.swift */,
+				729DEFD222BFA5920054FA32 /* SocketService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
