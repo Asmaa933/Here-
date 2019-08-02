@@ -43,31 +43,27 @@ class SocketService: NSObject {
         socket.emit("newMessage", messageBody , userId, channelId , user.name, user.avatarName, user.avatarColor)
         completion(true)
     }
-    func getMessages(completion: @escaping CompletionHandler ){
+    func getMessages(_ completion: @escaping (_ newMessage: MessageModel) -> Void){
         socket.on("messageCreated") { [weak self] (dataArray, ack) in
-            if let checkComplete = self?.getMessageData(dataArray: dataArray){
-            completion(checkComplete)
+            if let newMessage = self?.getMessageData(dataArray: dataArray){
+            completion(newMessage)
                 }
             }
         }
       
     
-    fileprivate func getMessageData( dataArray: [Any]) -> Bool {
-        guard let msgBody = dataArray[0] as? String else {return false}
-        guard let channelId = dataArray[2] as? String else {return false}
-        guard let userName = dataArray[3] as? String else {return false}
-        guard let userAvatar = dataArray[4] as? String else {return false}
-        guard let userAvatarColor = dataArray[5] as? String else {return false}
-        guard let id = dataArray[6] as? String else {return false}
-        guard let timeStamp = dataArray[7] as? String else {return false}
-        if channelId == ChannelServices.instance.selectedChannel?.id && LocalStore.sharedLocalStore.isLoggedIn{
-         let newMessage =  MessageModel(message: msgBody, userName: userName, channelID: channelId, userAvatar: userAvatar, userAvatarColor: userAvatarColor, id: id, timeStamp: timeStamp)
-            MessageService.instance.messages.append(newMessage)
-            return true
-        }else{
-            return false
+    fileprivate func getMessageData( dataArray: [Any]) -> MessageModel {
+        guard let msgBody = dataArray[0] as? String else {return MessageModel()}
+        guard let channelId = dataArray[2] as? String else {return MessageModel()}
+        guard let userName = dataArray[3] as? String else {return MessageModel()}
+        guard let userAvatar = dataArray[4] as? String else {return MessageModel()}
+        guard let userAvatarColor = dataArray[5] as? String else {return MessageModel()}
+        guard let id = dataArray[6] as? String else {return MessageModel()}
+        guard let timeStamp = dataArray[7] as? String else {return MessageModel()}
+        let newMessage =  MessageModel(message: msgBody, userName: userName, channelID: channelId, userAvatar: userAvatar, userAvatarColor: userAvatarColor, id: id, timeStamp: timeStamp)
+            return newMessage
         }
-    }
+    
     func getTypingUser(_ completion: @escaping (_ typingUser: [String:String]) -> Void){
         socket.on("userTypingUpdate") { (dataArray, ack) in
             guard let typingUsers = dataArray[0] as? [String:String] else {return}
@@ -75,5 +71,5 @@ class SocketService: NSObject {
         }
         
     }
-    
 }
+

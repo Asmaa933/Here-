@@ -15,3 +15,14 @@ import Foundation
     return alert
 }
 
+
+ func changeDateFormat(dateString: String, fromFormat: String, toFormat: String) -> String{
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = fromFormat
+    let myDate = dateFormatter.date(from: dateString)!
+    
+    dateFormatter.dateFormat = toFormat
+    let somedateString = dateFormatter.string(from: myDate)
+    return somedateString
+}
+

@@ -247,7 +247,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#general" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UOv-te-BHF">
-                                                    <rect key="frame" x="15" y="-2" width="345" height="68"/>
+                                                    <rect key="frame" x="15" y="11" width="345" height="42"/>
                                                     <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="21"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
@@ -257,7 +257,7 @@
                                                 <constraint firstItem="UOv-te-BHF" firstAttribute="centerY" secondItem="KvP-17-Fyd" secondAttribute="centerY" id="2ku-an-oWH"/>
                                                 <constraint firstItem="UOv-te-BHF" firstAttribute="leading" secondItem="KvP-17-Fyd" secondAttribute="leadingMargin" id="P74-fP-4HU"/>
                                                 <constraint firstItem="UOv-te-BHF" firstAttribute="trailing" secondItem="KvP-17-Fyd" secondAttribute="trailingMargin" id="V4o-fr-1pS"/>
-                                                <constraint firstItem="UOv-te-BHF" firstAttribute="top" secondItem="KvP-17-Fyd" secondAttribute="topMargin" constant="-13" id="enV-Oo-nDd"/>
+                                                <constraint firstItem="UOv-te-BHF" firstAttribute="top" secondItem="KvP-17-Fyd" secondAttribute="topMargin" id="enV-Oo-nDd"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

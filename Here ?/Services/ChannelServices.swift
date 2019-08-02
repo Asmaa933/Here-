@@ -12,6 +12,7 @@ class ChannelServices{
    static let instance =  ChannelServices()
 var channels = [ChannelModel]()
     var selectedChannel: ChannelModel?
+    var unreadChannels =  [String]()
     func getAllChannels(completion: @escaping CompletionHandler){
     
         

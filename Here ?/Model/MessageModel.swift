@@ -17,6 +17,9 @@ class MessageModel{
     public private(set) var id = ""
     public private(set) var timeStamp = ""
     
+    init() {
+    
+    }
     init (message: String,userName: String,channelID: String,userAvatar: String,userAvatarColor: String,id: String,timeStamp: String){
         self.message = message
         self.userName = userName
@@ -27,4 +30,6 @@ class MessageModel{
         self.timeStamp = timeStamp
         
     }
+
+
 }

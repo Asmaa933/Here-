@@ -9,7 +9,7 @@
 import UIKit
 
 class ChatVC: UIViewController {
-
+    
     @IBOutlet weak var messageTableView: UITableView!
     @IBOutlet weak var channelLabel: UILabel!
     @IBOutlet weak var menuBtn: UIButton!
@@ -22,12 +22,12 @@ class ChatVC: UIViewController {
     var isTyping = false
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        
         updateSlideMenu()
         updateUI()
         NotificationCenter.default.addObserver(self, selector: #selector (ChatVC.userDataDidChange(_:)), name: notifUserDataChange, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector (ChatVC.channelSelected(_:)), name: notiChannelSelected, object: nil)
-      
+        
         
     }
     
@@ -35,11 +35,11 @@ class ChatVC: UIViewController {
         menuBtn.addTarget(self.revealViewController(), action: #selector (SWRevealViewController.revealToggle(_:)), for: .touchUpInside)
         self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
-     
+        
     }
     func updateUI(){
         sendBtn.isHidden = true
-         view.bindToKeyboard()
+        view.bindToKeyboard()
         let tap = UITapGestureRecognizer(target: self, action: #selector(ChatVC.handleTap))
         view.addGestureRecognizer(tap)
         messageTableView.tableFooterView = UIView()
@@ -53,18 +53,22 @@ class ChatVC: UIViewController {
             let alert = alertMessage(message: "Please Login")
             self.present(alert, animated: true, completion: nil)
         }
-        SocketService.sharedSocket.getMessages { [weak self] (success) in
-            if success{
+        SocketService.sharedSocket.getMessages { [weak self] (NewMessage) in
+            if NewMessage.channelID == ChannelServices.instance.selectedChannel?.id && LocalStore.sharedLocalStore.isLoggedIn{
+                MessageService.instance.messages.append(NewMessage)
                 self?.messageTableView.reloadData()
                 if MessageService.instance.messages.count > 0 {
                     let endIndex = IndexPath(row: MessageService.instance.messages.count - 1 , section: 0)
                     self?.messageTableView.scrollToRow(at: endIndex, at: .bottom , animated: false)
                 }
+                
             }
         }
+        
+        
         SocketService.sharedSocket.getTypingUser {[weak self] (typingUsers) in
             self?.handleTyping(typingUsers: typingUsers)
-    }
+        }
     }
     fileprivate func handleTyping(typingUsers: [String:String]){
         guard let channelId = ChannelServices.instance.selectedChannel?.id else {return}
@@ -93,7 +97,7 @@ class ChatVC: UIViewController {
     
     @objc func userDataDidChange(_ notif : Notification){
         if LocalStore.sharedLocalStore.isLoggedIn{
-        getChannelsAndMessages()
+            getChannelsAndMessages()
         }else{
             messageTableView.reloadData()
             let alert = alertMessage(message: "Please Login")
@@ -106,26 +110,26 @@ class ChatVC: UIViewController {
     }
     @objc func channelSelected(_ notif : Notification){
         
-    updateWithChannel()
+        updateWithChannel()
     }
-  
+    
     func getChannelsAndMessages(){
         ChannelServices.instance.getAllChannels { [weak self] (success) in
             if success{
-            if ChannelServices.instance.channels.count > 0 {
-                ChannelServices.instance.selectedChannel = ChannelServices.instance.channels[0]
-                self?.updateWithChannel()
-            }else{
-                self?.channelLabel.text = "create channel first"
+                if ChannelServices.instance.channels.count > 0 {
+                    ChannelServices.instance.selectedChannel = ChannelServices.instance.channels[0]
+                    self?.updateWithChannel()
+                }else{
+                    self?.channelLabel.text = "create channel first"
                 }
             }
         }
     }
-        func updateWithChannel(){
-            let channel = ChannelServices.instance.selectedChannel?.channelTitle ?? "Here?"
-            channelLabel.text = "#\(channel)"
-            getMessage()
-        }
+    func updateWithChannel(){
+        let channel = ChannelServices.instance.selectedChannel?.channelTitle ?? "Here?"
+        channelLabel.text = "#\(channel)"
+        getMessage()
+    }
     func getMessage(){
         guard let channelId = ChannelServices.instance.selectedChannel?.id else {return}
         MessageService.instance.findMessagesForChannel(channelId: channelId) { (success) in
@@ -133,32 +137,32 @@ class ChatVC: UIViewController {
             
         }
     }
-
-    @IBAction func sendBtnTapped(_ sender: UIButton) {
-       if LocalStore.sharedLocalStore.isLoggedIn{
-        guard let channelId = ChannelServices.instance.selectedChannel?.id else {return}
-        guard let message = messageTxt.text , messageTxt.text != nil else {return}
-        SocketService.sharedSocket.addMessage(messageBody: message, userId: UserDataModel.sharedUserData.id, channelId: channelId) { [weak self] (success) in
-            self?.messageTxt.text = ""
-            self?.messageTxt.resignFirstResponder()
-        SocketService.sharedSocket.socket.emit("stopType",UserDataModel.sharedUserData.name, channelId)
-        }
-        }
     
+    @IBAction func sendBtnTapped(_ sender: UIButton) {
+        if LocalStore.sharedLocalStore.isLoggedIn{
+            guard let channelId = ChannelServices.instance.selectedChannel?.id else {return}
+            guard let message = messageTxt.text , messageTxt.text != nil else {return}
+            SocketService.sharedSocket.addMessage(messageBody: message, userId: UserDataModel.sharedUserData.id, channelId: channelId) { [weak self] (success) in
+                self?.messageTxt.text = ""
+                self?.messageTxt.resignFirstResponder()
+                SocketService.sharedSocket.socket.emit("stopType",UserDataModel.sharedUserData.name, channelId)
+            }
+        }
+        
     }
     @IBAction func textFieldEditing(_ sender: UITextField) {
         guard let channelId = ChannelServices.instance.selectedChannel?.id else {return}
         if messageTxt.text == ""{
-          
-        isTyping = false
-        sendBtn.isHidden = true
+            
+            isTyping = false
+            sendBtn.isHidden = true
             SocketService.sharedSocket.socket.emit("stopType",UserDataModel.sharedUserData.name, channelId)
         }else{
             if isTyping == false{
-        sendBtn.isHidden = false
-        SocketService.sharedSocket.socket.emit("startType",UserDataModel.sharedUserData.name, channelId)
+                sendBtn.isHidden = false
+                SocketService.sharedSocket.socket.emit("startType",UserDataModel.sharedUserData.name, channelId)
             }
-        isTyping = true
+            isTyping = true
         }
         
     }
@@ -171,9 +175,9 @@ extension ChatVC :  UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell =  tableView.dequeueReusableCell(withIdentifier: messageCellID, for: indexPath) as? MessageCell{
             let message = MessageService.instance.messages[indexPath.row]
-        cell.configureCell(message: message)
+            cell.configureCell(message: message)
             return cell
-       
+            
         }else{
             return UITableViewCell()
         }

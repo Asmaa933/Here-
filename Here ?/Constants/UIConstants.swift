@@ -26,3 +26,5 @@ let placeHolderColor = #colorLiteral(red: 0.3266413212, green: 0.4215201139, blu
 let notifUserDataChange = Notification.Name("notifUserDataChanged")
 let notiChannelLoaded = Notification.Name("channelsLoaded")
 let notiChannelSelected = Notification.Name("channelSelected")
+let apiDateFormat = "YYYY-MM-DDTHH:mm:ss.sssZ"
+let convertDateFormat = "MM-dd-yyyy HH:mm"

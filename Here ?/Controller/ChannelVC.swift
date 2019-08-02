@@ -27,16 +27,15 @@ self.revealViewController().rearViewRevealWidth = self.view.frame.size.width - 6
         SocketService.sharedSocket.getChannel{ (success) in
             if success{
                 self.channelTableView.reloadData()
-                print("bbb\(ChannelServices.instance.channels)")
-                print("reload")
-            }else{
-                print("error")
+                
             }
-
-        
-        
-        // updateChannels()
-    }
+        }
+        SocketService.sharedSocket.getMessages { [weak self] (newMessage) in
+            if newMessage.channelID != ChannelServices.instance.selectedChannel?.id && LocalStore.sharedLocalStore.isLoggedIn{
+                ChannelServices.instance.unreadChannels.append(newMessage.channelID)
+                self?.channelTableView.reloadData()
+        }
+        }
     }
     override func viewDidAppear(_ animated: Bool) {
         setupUserData()
@@ -105,6 +104,12 @@ extension ChannelVC: UITableViewDelegate, UITableViewDataSource{
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
        let channel = ChannelServices.instance.channels[indexPath.row]
+        if ChannelServices.instance.unreadChannels.count > 0 {
+            ChannelServices.instance.unreadChannels = ChannelServices.instance.unreadChannels.filter{$0 != channel.id}
+        }
+        let index = IndexPath(row: indexPath.row, section: 0)
+        channelTableView.reloadRows(at: [index], with: .none)
+        channelTableView.selectRow(at: index, animated: false, scrollPosition: .none)
         ChannelServices.instance.selectedChannel = channel
         NotificationCenter.default.post(name: notiChannelSelected, object: nil)
     self.revealViewController()?.revealToggle(self)
