@@ -223,7 +223,9 @@
 		727E8B3522AC5EEF005BEB09 /* Here ? */ = {
 			isa = PBXGroup;
 			children = (
+				7230541D22AF51AF008F08DC /* LocalStore.swift */,
 				724941FC22B48FF400706EA8 /* XIBs */,
+				7230541F22AF5229008F08DC /* Constants */,
 				726C854022B37F2D009927BA /* Helping Methods */,
 				7230541A22AF507B008F08DC /* Services */,
 				72071F7A22ACFA2700BF5F53 /* Controller */,
@@ -235,8 +237,6 @@
 				727E8B3D22AC5EF8005BEB09 /* Assets.xcassets */,
 				727E8B3F22AC5EF8005BEB09 /* LaunchScreen.storyboard */,
 				727E8B4222AC5EF8005BEB09 /* Info.plist */,
-				7230541F22AF5229008F08DC /* Constants */,
-				7230541D22AF51AF008F08DC /* LocalStore.swift */,
 			);
 			path = "Here ?";
 			sourceTree = "<group>";

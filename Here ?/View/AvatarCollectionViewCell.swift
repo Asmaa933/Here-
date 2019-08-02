@@ -12,18 +12,15 @@ enum AvatarMode{
     case light
 }
 class AvatarCollectionViewCell: UICollectionViewCell {
-    
     @IBOutlet weak var avatarImage: UIImageView!
     override func awakeFromNib() {
-            super.awakeFromNib()
+        super.awakeFromNib()
         setupView()
     }
-    
     func setupView (){
         self.layer.backgroundColor = UIColor.lightGray.cgColor
         self.layer.cornerRadius = 10
         self.clipsToBounds = true
-        
     }
     func confiureCell (index: Int , mode: AvatarMode){
         switch mode {

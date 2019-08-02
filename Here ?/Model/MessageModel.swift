@@ -16,9 +16,7 @@ class MessageModel{
     public private(set) var userAvatarColor = ""
     public private(set) var id = ""
     public private(set) var timeStamp = ""
-    
     init() {
-    
     }
     init (message: String,userName: String,channelID: String,userAvatar: String,userAvatarColor: String,id: String,timeStamp: String){
         self.message = message
@@ -28,8 +26,5 @@ class MessageModel{
         self.userAvatarColor = userAvatarColor
         self.id = id
         self.timeStamp = timeStamp
-        
     }
-
-
 }

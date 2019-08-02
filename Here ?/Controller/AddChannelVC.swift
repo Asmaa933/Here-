@@ -9,42 +9,39 @@
 import UIKit
 
 class AddChannelVC: UIViewController {
-   
+    
     @IBOutlet weak var bgView: UIView!
     @IBOutlet weak var nameTxt: UITextField!
-    
     @IBOutlet weak var descTxt: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-updateUI()
-        
+        updateUI()
     }
+    
     func updateUI(){
         let closeTap =  UITapGestureRecognizer(target: self, action: #selector(AddChannelVC.closeTap(_:)))
         bgView.addGestureRecognizer(closeTap)
         nameTxt.attributedPlaceholder = NSAttributedString(string: "Name", attributes: [NSAttributedString.Key.foregroundColor : placeHolderColor])
-
+        
         descTxt.attributedPlaceholder = NSAttributedString(string: "Description", attributes: [NSAttributedString.Key.foregroundColor : placeHolderColor])
-
     }
+    
     @objc func closeTap(_ recognizer: UITapGestureRecognizer){
         dismiss(animated: true, completion: nil)
     }
+    
     @IBAction func closeBtnTapped(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
     }
     
-   
     @IBAction func createChannelBtnTapped(_ sender: UIButton) {
         guard let channelName = nameTxt.text , nameTxt.text != "" else {return}
         guard let channelDesc = descTxt.text , descTxt.text != "" else {return}
-        SocketService.sharedSocket.addChannel(channelName: channelName, channelDescription: channelDesc) { (success) in
+        SocketService.instance.addChannel(channelName: channelName, channelDescription: channelDesc) { (success) in
             if success{
-          
-                self.dismiss(animated: true, completion: nil)
+            self.dismiss(animated: true, completion: nil)
             }
         }
     }
-    
 }

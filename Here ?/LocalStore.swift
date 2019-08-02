@@ -8,11 +8,11 @@
 
 import Foundation
 class LocalStore{
-static let sharedLocalStore = LocalStore()
+    
+    static let instance = LocalStore()
     let userDefaults =  UserDefaults.standard
     var isLoggedIn : Bool {
         get {
-            
             return userDefaults.bool(forKey: loggedInKey)
         }
         set {
@@ -27,20 +27,16 @@ static let sharedLocalStore = LocalStore()
             return userDefaults.set(newValue, forKey: userEmailKey)
         }
     }
+    
     func saveAccessToken(token:String){
         userDefaults.set(token, forKey: accessToken)
-        
     }
     
     func getAccessToken() -> String? {
         return  userDefaults.object(forKey: accessToken) as? String
-        
     }
+    
     func deleteAccessToken(){
         userDefaults.removeObject(forKey: accessToken)
     }
-    
-  
-    
-    
 }

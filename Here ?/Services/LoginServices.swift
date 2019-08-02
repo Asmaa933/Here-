@@ -10,28 +10,24 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 class LogInServices{
+   
     func logInUser(parameters: [String:Any] , completion: @escaping CompletionHandler){
-       
         Alamofire.request(loginURL, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: header).responseJSON { (response) in
             if response.result.error == nil{
                 guard let data = response.data else{return}
                 do{
                     let json = try JSON(data: data)
-                let token = json["token"].stringValue
-     LocalStore.sharedLocalStore.saveAccessToken(token: token)
-
-                let email = json["user"].stringValue
-                    
-            LocalStore.sharedLocalStore.userEmail = email
+                    let token = json["token"].stringValue
+                    LocalStore.instance.saveAccessToken(token: token)
+                    let email = json["user"].stringValue
+                    LocalStore.instance.userEmail = email
                 }catch{}
-              LocalStore.sharedLocalStore.isLoggedIn = true
-
+                LocalStore.instance.isLoggedIn = true
                 completion(true)
             }else{
                 completion(false)
                 debugPrint(response.result.error as Any)
             }
         }
-            }
-        }
-
+    }
+}

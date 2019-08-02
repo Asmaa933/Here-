@@ -7,6 +7,7 @@
 //
 
 import Foundation
+//Convert string to date
 extension String {
     func convertStringToDate(withFormat format: String) -> Date {
         let dateFormatter = DateFormatter()
@@ -17,6 +18,7 @@ extension String {
         return date
     }
 }
+//Convert date to string
 extension Date{
     func convertDateToString(format : String) -> String {
         let dateFormatter = DateFormatter()

@@ -9,13 +9,10 @@
 import Foundation
 import Alamofire
 class RegisterServices{
+    
     func registerUser(parameters: [String: Any], completion: @escaping CompletionHandler){
-       
-        
-   
         Alamofire.request(authURL, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: header).responseString { (response) in
             if  response.result.error == nil{
-
                 completion (true)
             }else{
                 completion (false)
@@ -23,6 +20,4 @@ class RegisterServices{
             }
         }
     }
-    
-    
 }

@@ -35,13 +35,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationDidBecomeActive(_ application: UIApplication) {
         //establish connection when open app
-SocketService.sharedSocket.establishConnection()
+SocketService.instance.establishConnection()
         
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
            //close connection when close app
-SocketService.sharedSocket.closeConnection()
+SocketService.instance.closeConnection()
         
     }
 
