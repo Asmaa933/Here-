@@ -33,9 +33,9 @@ class MessageCell: UITableViewCell {
         userImage.image = UIImage(named: message.userAvatar)
         userImage.backgroundColor = UserDataModel.sharedUserData.returnUIColor(components: message.userAvatarColor)
      let time = message.timeStamp
-        let convertedTime = changeDateFormat(dateString:time  , fromFormat: apiDateFormat
-, toFormat: convertDateFormat)
-        timeLabel.text = convertedTime
+        let convertedTime = time.convertStringToDate(withFormat: apiDateFormat)
+   let convertedTime2 = convertedTime.convertDateToString(format: convertDateFormat)
+        timeLabel.text = convertedTime2
     }
 
 }
